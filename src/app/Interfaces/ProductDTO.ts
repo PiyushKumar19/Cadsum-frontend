@@ -1,6 +1,8 @@
+
 type Product = {
     id: string;
-    productName: string;
+    productLogo: string;
+    productName: string[];
     description: string;
     price: number;
     version: string;
@@ -8,5 +10,14 @@ type Product = {
     createdOn: string; // or Date if you're converting it later
     supportedOS: string;
     supportedLanguage: string;
+    screenshots: string[];
+    licensingPlans: LicensePlans[]
   };
-  
+
+type LicensePlans = {
+  planId: string;
+  planName: string;
+  planPrice: number;
+  isSingleMachine: boolean;
+  isMultiMachine: boolean;
+}

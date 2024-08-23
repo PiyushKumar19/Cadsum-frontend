@@ -4,7 +4,11 @@ import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay'; // This import is unused in the current code, consider removing if not used
 
-export default function EmblaCarousel() {
+interface EmblaCarouselProps {
+  images: string[];
+}
+
+export default function EmblaCarousel({ images }: EmblaCarouselProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
 
   const scrollPrev = useCallback(() => {
@@ -19,9 +23,11 @@ export default function EmblaCarousel() {
     <div className="embla mx-auto max-w-lg relative">
       <div className="embla__viewport h-56 border" ref={emblaRef}>
         <div className="embla__container h-full">
-          <div className="embla__slide flex items-center justify-center">
-            <img src="ProductImage.png" alt="Product" className="w-full" />
-          </div>
+          {images.map((image: string, index: number) => (
+            <div key={index} className="embla__slide flex items-center justify-center">
+              <img src={image} alt="Product" className="w-full" />
+            </div>
+          ))}
           <div className="embla__slide flex items-center justify-center">
             <video controls className="w-full h-auto">
               <source src="SnapSave.io-Docker Tutorial for Beginners [FULL COURSE in 3 Hours]-(1080p).mp4" type="video/mp4" />
@@ -58,7 +64,6 @@ export default function EmblaCarousel() {
         </svg>
       </button>
 
-
       {/* Next Button */}
       <button
         className="absolute top-1/2 right-0 transform -translate-y-1/2 bg-transparent p-2 text-white"
@@ -71,7 +76,5 @@ export default function EmblaCarousel() {
         </svg>
       </button>
     </div>
-
-
   );
 }
