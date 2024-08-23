@@ -203,9 +203,12 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                     </div>
                 </div>
                 <div className="bg-white m-6 flex flex-col items-center justify-center">
-                    <label className="w-full max-w-[96vw] pt-2 text-[#F97306] text-2xl text-center font-medium mb-6">
-                        Screenshots & Videos
-                    </label>
+                    <div className="flex items-center space-x-2 mt-1">
+                        {/* <hr className="w-12 border-t-2 border-orange-500 mt-2" /> */}
+                        <h2 className="text-orange-600 font-semibold text-2xl">
+                            Screenshots & Video
+                        </h2>
+                    </div>
 
                     <div className="flex justify-center w-full max-w-[90vw]">
                         <div className="w-1/2 p-4">
@@ -219,7 +222,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                 <div className='bg-white w-[96vw] mx-5 my-2'>
                     <div className=' pb-4'>
                         <div className='flex items-center justify-center'>
-                            <label className='py-5 text-center font-medium text-lg text-orange-400'>Licensing Plans</label>
+                            <label className='py-5 text-center font-semibold text-2xl text-orange-600'>Licensing Plans</label>
                         </div>
                         <div className='flex items-center justify-center ease-in duration-200'>
                             <div className='px-4'>
@@ -240,12 +243,11 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                 <div className='w-[96vw] mx-5 bg-white'>
                     <div className='flex items-center justify-start
                         my-2 mx-2 pt-2'>
-                        <label className='text-xl text-orange-400 font-medium'>
-                            Related Products
-                        </label>
+                        <div className='flex w-full items-center justify-start'>
+                            <label className='py-1 px-4 text-start font-semibold text-2xl text-orange-600'>Related Products</label>
+                        </div>
                     </div>
                     <div className='flex flex-nowrap'>
-                        <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
