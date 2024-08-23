@@ -46,22 +46,18 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-x-1">
-          <button className="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block" type="button">
-            <span>
-              <svg width="25" height="22" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M1 1L3.48218 1.8274C4.40456 2.13485 5.08481 2.9223 5.25498 3.87955L6.71188 12.0746C6.93695 13.3405 8.03763 14.2628 9.32349 14.2628H19.43C20.6115 14.2628 21.6505 13.4815 21.9784 12.3465L23.8942 5.71505C24.3841 4.01886 23.1113 2.32628 21.3457 2.32628H8.9577M10.284 18.9048C10.284 20.0035 9.3933 20.8943 8.29456 20.8943C7.19583 20.8943 6.30514 20.0035 6.30514 18.9048C6.30514 17.8061 7.19583 16.9154 8.29456 16.9154C9.3933 16.9154 10.284 17.8061 10.284 18.9048ZM20.8943 18.9048C20.8943 20.0035 20.0035 20.8943 18.9048 20.8943C17.8061 20.8943 16.9154 20.0035 16.9154 18.9048C16.9154 17.8061 17.8061 16.9154 18.9048 16.9154C20.0035 16.9154 20.8943 17.8061 20.8943 18.9048Z" stroke="#3E3E3E" strokeWidth="1.25" strokeLinecap="round" />
-              </svg>
-            </span>
-          </button>
-          <button
-            className="hidden px-4 py-2 font-sans text-xs font-bold text-center text-gray-900 uppercase align-middle transition-all rounded-lg select-none hover:bg-gray-900/10 active:bg-gray-900/20 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
-            type="button"
-            onClick={openModal}
+          <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block" 
+          type="button"
+          onClick={openModal}
           >
-            <span>Log In</span>
+            <span>
+              <svg width="24px" height="24px" fill="#000000" viewBox="0 0 24 24" id="user" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier">
+              <path id="primary" d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z"></path></g>
+              </svg>    
+               </span>
           </button>
-          <button className="hidden select-none rounded-lg bg-gradient-to-tr from-gray-900 to-gray-800 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block" type="button">
-            <span>Sign in</span>
+          <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block" type="button">
+            <span>Get Quote</span>
           </button>
         </div>
         <button className="relative ml-auto h-6 max-h-[40px] w-6 max-w-[40px] select-none rounded-lg text-center align-middle font-sans text-xs font-medium uppercase text-inherit transition-all hover:bg-transparent focus:bg-transparent active:bg-transparent disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:hidden" type="button">

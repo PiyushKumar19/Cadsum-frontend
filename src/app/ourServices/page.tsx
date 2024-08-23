@@ -3,6 +3,20 @@ import React from 'react'
 const OurServices = () => {
     return (
         <div>
+             <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-96 flex items-center justify-center">
+        <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
+          <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 rounded-lg">
+            <h1 className="text-4xl text-gray-800 font-bold">Our Services</h1>
+            <p className="mt-2 text-lg text-gray-800">
+            Specialized CAD plugins and SDKs for Autodesk and beyond. Custom
+            solutions and expert consulting.
+            </p>
+          </div>
+        </div>
+      </header>
+
+
+
             <div className="bg-gray-100 p-20 pr-60 pl-60">
                 <div className="flex items-center justify-center">
                     <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CAD_3D_Plugin_Development_copy_tm5vqm.png" alt="Our Vision Image" className="w-1/2 md:w-1/3" />
@@ -63,6 +77,19 @@ const OurServices = () => {
                     <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663324552/Cadsum/About%20Us/CADSUM-GOAL_t3zinm.png" alt="Our Goal Image" className="w-1/2 md:w-1/3" />
                 </div>
             </div>
+
+            <div className="pt-10 pb-10 pl-48 pr-48 bg-gradient-to-r from-orange-200 to-orange-300 bg-opacity-50 p-8 rounded-lg">
+        <h2 className="text-xl">Talk to an expert</h2>
+        <p className="mt-4">
+          No Matters where your business operates, Cadsum is there to support in your inovative projects.
+           </p>
+        <button
+          type="button"
+          className="p-2 mt-6 text-sm font-medium text-orange-600 focus:outline-none border border-orange-600   hover:bg-orange-600 hover:text-white"
+        >
+          Contact us
+        </button>
+      </div>
 
         </div>
     )
