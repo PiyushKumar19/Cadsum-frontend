@@ -3,12 +3,18 @@ import React from 'react'
 const PrivacyPolicy = () => {
     return (
         <div>
-            <div className="w-full text-center text-gray-900 py-16 bg-gray-300 mb-20">
-                <h1 className="text-3xl font-bold">Privacy Policies</h1>
-                <p className="mt-2">"Empowering Transparency: Your Privacy, Our Commitment."</p>
-            </div>
+            <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-64 flex items-center justify-center">
+                <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
+                <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 pr-16 pl-16 rounded-lg">
+                    <h1 className="text-4xl text-gray-800 font-bold font-poppins">Privacy Policy</h1>
+                    <p className="mt-2 text-lg text-gray-800 font-lato">
+                    Empowering Transparency: Your Privacy, Our Commitment.
+                    </p>
+                </div>
+                </div>
+            </header>
 
-            <div className=" text-base text-gray-900 font-normal ml-48 mr-48">
+            <div className=" text-base text-gray-900 font-normal mt-12 ml-48 mr-48 font-lato">
 
                 <p className="mb-2 text-xl"><b>Who we are</b></p>
                 <p className="mb-4">Our website address is: https://cadsum.com.</p>
