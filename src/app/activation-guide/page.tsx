@@ -3,11 +3,11 @@ import React from 'react'
 function activationGuide() {
   return (
     <div>
-         <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-96 flex items-center justify-center">
+         <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-64 flex items-center justify-center">
         <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
           <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 rounded-lg">
-            <h1 className="text-4xl text-gray-800 font-bold">Activation Guide</h1>
-            <p className="mt-2 text-lg text-gray-800">
+            <h1 className="text-4xl text-gray-800 font-bold font-poppins">Activation Guide</h1>
+            <p className="mt-2 text-lg text-gray-800 font-lato">
             Follow the steps below to activate the license.
             </p>
           </div>
@@ -22,12 +22,12 @@ function activationGuide() {
 
       <div className="flex items-center space-x-2">
                         <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-                        <h2 className="text-orange-600 font-semibold text-xl">Activate(Internet is required)</h2>
+                        <h2 className="text-orange-600 font-semibold text-xl font-poppins">Activate(Internet is required)</h2>
                     </div>
                     </div>
 
       
-        <div>
+        <div className='font-lato text-gray-800 text-base'>
         <p className="mt-4"><b>Step 1: </b> After purchasing the product you will get a license key by email.</p>
         <p className="mt-1"><b>Step 2: </b> Go to the Help menu of plugin in the ribbon of the software.</p>
         <p className="mt-1"><b>Step 3: </b> Paste the license key into the provided field and click the "Activate" button. Refer to the image below for guidance.</p>
@@ -39,16 +39,16 @@ function activationGuide() {
 
       <div className="flex items-center space-x-2">
                         <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-                        <h2 className="text-orange-600 font-semibold text-xl">Activate Offline(Without Internet)</h2>
+                        <h2 className="text-orange-600 font-semibold text-xl font-poppins">Activate Offline(Without Internet)</h2>
                        
                     </div>
-                    <p className="mt-2 text-base">
+                    <p className="mt-2 text-base font-lato">
                         Offline Activation is only available if you are unable to activate your license using the first method given above.
                     </p>
                     </div>
 
       
-        <div>
+        <div className='font-lato text-gray-800 text-base'>
         <p className="mt-4"><b>Step 1: </b> After purchasing the product you will get a license key by email.</p>
         <p className="mt-1"><b>Step 2: </b> Go to the Help menu of plugin in the ribbon of the software.</p>
         <p className="mt-1"><b>Step 3: </b> Press Save to create a license request file. (2.1)</p>
@@ -57,9 +57,6 @@ function activationGuide() {
         <p className="mt-1"><b>Step 6: </b> Press Activate button. (2.3)</p>
         <p className="mt-2">If you encounter any issues while activating your license, please contact us for assistance.</p>
         </div>
-
-
-        
 
       </div>
 

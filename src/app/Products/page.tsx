@@ -7,8 +7,8 @@ const Products = () => {
             <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-96 flex items-center justify-center">
         <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
           <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 rounded-lg">
-            <h1 className="text-4xl text-gray-800 font-bold">Products</h1>
-            <p className="mt-2 text-lg text-gray-800">
+            <h1 className="text-4xl text-gray-800 font-bold font-poppins">Products</h1>
+            <p className="mt-2 text-lg text-gray-800 font-lato">
             Explore our range of innovative plugins that simplify integration
               and boost productivity.
             </p>
@@ -17,7 +17,7 @@ const Products = () => {
       </header>
 
       <div className="flex justify-center items-center  pt-3 pb-3 pl-8 pr-8 text-white bg-gray-800">
-                <p>
+                <p className='font-lato'>
                 All our products are available in Single and Network Licenses
                 </p>
        </div>
@@ -27,37 +27,37 @@ const Products = () => {
         
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
           >
             All Products
           </button>
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
           >
             Revit
           </button>
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
           >
             AutoCAD
           </button>
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
           >
             Inventor
           </button>
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
           >
             Fusion
           </button>
           <button
             type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
           >
             Other Products
           </button>
@@ -71,7 +71,7 @@ const Products = () => {
               alt="STL exporter for Revit"
             />
             <div className="px-2 py-2">
-              <div className="font-bold text-l mb-2 text-center">
+              <div className="font-bold text-base font-lato text-center">
                 Cadsum STL exporter for Revit
               </div>
             </div>
@@ -84,7 +84,7 @@ const Products = () => {
               alt="Sunset in the mountains"
             />
             <div className="px-2 py-2">
-              <div className="font-bold text-l mb-2 text-center">
+              <div className="font-bold text-base font-lato text-center">
                 Cadsum STL exporter for Revit
               </div>
             </div>
@@ -97,7 +97,7 @@ const Products = () => {
               alt="Sunset in the mountains"
             />
             <div className="px-2 py-2">
-              <div className="font-bold text-l mb-2 text-center">
+              <div className="font-bold text-base font-lat text-center">
                 Cadsum STL exporter for Revit
               </div>
             </div>

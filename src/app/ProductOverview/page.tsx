@@ -26,7 +26,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=43090b63-b91a-4a53-97e9-695ffa412b8b`); // Replace with the actual API endpoint
+                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=2e0c1cb8-88c1-44ca-be3c-9b35ae7f8aac`); // Replace with the actual API endpoint
                 setProduct(response.data);
             } catch (err) {
                 if (err instanceof Error) {
@@ -56,7 +56,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                     }}
                 >
                     <div className='pl-12'>
-                        <img src='E:\\Mod Mon\\evently Mk01\\CadsumAPI\\CadsumAPI\\wwwroot\\Product\\Logo\\43090b63-b91a-4a53-97e9-695ffa412b8b\\Chad43090b63-b91a-4a53-97e9-695ffa412b8b.jpeg' className='w-36 h-36' alt='Image'></img>
+                        <img src='/stl Icon.png' className='w-36 h-36' alt='Image'></img>
                     </div>
                     <div className='flex flex-col w-64 p-3 justify-start'>
                         <h4 className='text-xl font-semibold'>{product?.productName}</h4>
@@ -111,7 +111,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                                 </div>
                                 <div className='font-light text-sm flex-col items-start justify-items-start'>
                                     <ul>
-                                        <li>{product?.supportedLanguage}</li>
+                                        <li>English</li>
                                         <li>{product?.supportedOS}</li>
                                     </ul>
                                 </div>
@@ -134,7 +134,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                                     <ul>
                                         <li>{product?.version}</li>
                                         <li>{product?.supportedOS}</li>
-                                        <li>{product?.releaseOn}</li>
+                                        <li>1 January 2024</li>
                                     </ul>
                                 </div>
                             </div>
@@ -212,7 +212,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
 
                     <div className="flex justify-center w-full max-w-[90vw]">
                         <div className="w-1/2 p-4">
-                            {/* <ImageCarousel images={product?.screenshots} /> */}
+                            <ImageCarousel />
                         </div>
                         <div className="w-1/2 p-4">
                             <VideoPlayer src="SnapSave.io-Docker Tutorial for Beginners [FULL COURSE in 3 Hours]-(1080p).mp4" />

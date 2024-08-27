@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Modal from '../User/Login/Modal'
 import Login from '../User/Login/page'
+import ContactUs from '../contactUs/page'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,41 +22,41 @@ const NavBar = () => {
         </a>
         <div className="flex items-center gap-4 justify-center">
           <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
-            <li className="block p-1 font-sans text-sm hover:after:transition-all hover:after:duration-500 hover:ease-in hover:text-black hover:font-semibold antialiased font-normal leading-normal text-blue-gray-900 relative">
+            <li className="block p-1 font-poppins text-sm hover:after:transition-all hover:after:duration-500 hover:ease-in hover:text-black hover:font-semibold antialiased font-normal leading-normal text-blue-gray-900 relative">
               <a href="/Home" className="flex items-center hover:after:content-[''] hover:after:block hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-orange-500">
                 Home
               </a>
             </li>
-            <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
+            <li className="block p-1 font-poppins text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
               <a href="/Products" className="flex items-center hover:after:content-[''] hover:after:block hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-orange-500">
                 Products
               </a>
             </li>
-            <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
+            <li className="block p-1 font-poppins text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
               <a href="/about" className="flex items-center hover:after:content-[''] hover:after:block hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-orange-500">
                 About Us
               </a>
             </li>
-            <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
+            <li className="block p-1 font-poppins text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
               <a href="/ourServices" className="flex items-center hover:after:content-[''] hover:after:block hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-orange-500">
                 Our Services
               </a>
             </li>
-            <li className="block p-1 font-sans text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
+            <li className="block p-1 font-poppins text-sm antialiased font-normal leading-normal text-blue-gray-900 relative">
 
               <div className="relative inline-block text-left ml-1">
                 <button
                   type="button"
-                  className="inline-flex justify-center w-full rounded-md px-4 py-2 text-sm font-medium text-gray-700
+                  className="inline-flex  font-poppins justify-center w-full rounded-md px-4 py-2 text-sm font-medium text-blue-gray-900 relative
                     hover:after:content-[''] hover:after:block hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-orange-500"
                   onClick={toggleDropdown}
                 >
                   Help
-                  <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="24px" height="24px" viewBox="0 0 24 24" fill="blue-gray-900" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
                     <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
                     <g id="SVGRepo_iconCarrier"> 
-                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="#000000">
+                      <path fill-rule="evenodd" clip-rule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="blue-gray-900">
                       </path>
                     </g>
                   </svg>
@@ -95,7 +96,8 @@ const NavBar = () => {
               </svg>    
                </span>
           </button>
-          <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-sans text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block" type="button">
+          <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block" 
+          type="button">
             <span>Get Quote</span>
           </button>
         </div>

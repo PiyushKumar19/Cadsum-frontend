@@ -5,22 +5,22 @@ const Home = () => {
         <div className='bg-white'>
             <div className="flex items-center justify-end text-white pt-32 pb-32 bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/alex-tech/image/upload/v1723965495/Cadsum/Banner%20and%20logos/sl_063022_51250_12_gkxp9t.jpg')]">
                 <div className="text-right">
-                    <h1 className="text-3xl font-bold md:w-1/2 lg:w-1/3">
+                    <h1 className="text-3xl font-bold md:w-1/2 lg:w-1/3 font-poppins">
                         Find the right CAD solution for you <br />
-                        <span className='text-orange-500 font-semibold'>Cadsum</span> offers flexible options, Annual, Perpetual, and Network
+                        <span className='text-orange-500 font-semibold font-poppins'>Cadsum</span> offers flexible options, Annual, Perpetual, and Network
                         Licenses
                     </h1>
                 </div>
             </div>
 
             <div className="flex justify-center items-center  pt-3 pb-3 pl-8 pr-8 text-white bg-black">
-                <p>
+                <p className='font-lato'>
                     Try products free for 18 days, instant access & no credit card
                     required
                 </p>
                 <button
                     type="button"
-                    className="ml-16 p-2 text-sm font-medium text-white focus:outline-none bg-orange-500 rounded-md  hover:bg-orange-600 hover:text-white"
+                    className="ml-16 p-2 text-sm font-medium font-poppins text-white focus:outline-none bg-orange-500 rounded-md  hover:bg-orange-600 hover:text-white"
                 >
                     Start Free Trial
                 </button>
@@ -31,9 +31,9 @@ const Home = () => {
                     <div className="mr-40">
                     <div className="flex items-center space-x-2">
                         <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-                        <h2 className="text-orange-600 font-semibold text-2xl">What is CADSUM?</h2>
+                        <h2 className="text-orange-600 font-semibold text-2xl font-poppins">What is CADSUM?</h2>
                     </div>
-                        <p className="text-gray-600 mt-4">
+                        <p className="text-gray-950 text-base mt-4 font-lato">
                             CADSUM is a leading CAD software development company that excels
                             in creating custom 3D CAD applications and plugins. Our plugins
                             simplifies exporting models in various file formats.
@@ -46,7 +46,7 @@ const Home = () => {
                         </p>
                     </div>
                     <img
-                        src="https://res.cloudinary.com/alex-tech/image/upload/v1723961599/Cadsum/Home/What_is_Cadsum_tzfnj0.jpg"
+                        src="\Images\What is Cadsum.png"
                         alt="Cadsum Image"
                         className="w-1/2 md:w-2/5"
                     />
@@ -58,9 +58,9 @@ const Home = () => {
             <div className="flex flex-col items-center ">
                     <div className="flex items-center space-x-2 mt-1">
                         <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-                        <h2 className="text-orange-600 font-semibold text-2xl">Our Plugins</h2>
+                        <h2 className="text-orange-600 font-semibold text-2xl font-poppins">Our Plugins</h2>
                     </div>
-                    <p>Explore the range of plugins provided by CADSUM</p>
+                    <p className='font-lato text-base text-gray-950'>Explore the range of plugins provided by CADSUM</p>
                 </div>
 
             <div className="flex justify-center">
@@ -71,7 +71,7 @@ const Home = () => {
                         alt="STL exporter for Revit"
                     />
                     <div className="px-2 py-2">
-                        <div className="font-bold text-l mb-2 text-center">
+                        <div className="font-bold text-base text-gray-950 text-center font-poppins">
                             Cadsum STL exporter for Revit
                         </div>
                     </div>
@@ -84,7 +84,7 @@ const Home = () => {
                         alt="Sunset in the mountains"
                     />
                     <div className="px-2 py-2">
-                        <div className="font-bold text-l mb-2 text-center">
+                        <div className="font-bold text-base text-gray-950 text-center font-poppins">
                             Cadsum STL exporter for Revit
                         </div>
                     </div>
@@ -97,7 +97,7 @@ const Home = () => {
                         alt="Sunset in the mountains"
                     />
                     <div className="px-2 py-2">
-                        <div className="font-bold text-l mb-2 text-center">
+                        <div className="font-bold text-base text-gray-950 text-center font-poppins">
                             Cadsum STL exporter for Revit
                         </div>
                     </div>
@@ -107,7 +107,7 @@ const Home = () => {
             <div className="text-center">
                 <button
                     type="button"
-                    className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-orange-500 rounded-full  hover:bg-orange-600 hover:text-white"
+                    className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-white focus:outline-none bg-orange-500 rounded-full  hover:bg-orange-600 hover:text-white"
                 >
                     Explore More
                 </button>
@@ -117,13 +117,13 @@ const Home = () => {
 
 
             <div className="pt-10 pb-10 pl-32 pr-32 bg-gradient-to-r from-orange-200 to-orange-300 bg-opacity-50">
-        <h2 className="text-xl">Talk to an expert</h2>
-        <p className="mt-4">
+        <h2 className="text-xl text-gray-950 font-poppins">Talk to an expert</h2>
+        <p className="mt-4 text-gray-900 text-base font-lato">
         One of our specialists will get in touch to assist you in identifying the optimal solution for your product development challenges.
         </p>
         <button
           type="button"
-          className="p-2 mt-6 text-sm font-medium text-orange-600 focus:outline-none border border-orange-600   hover:bg-orange-600 hover:text-white"
+          className="p-2 mt-6 text-sm font-medium font-poppins text-orange-600 focus:outline-none border border-orange-600   hover:bg-orange-600 hover:text-white"
         >
           Contact us
         </button>
@@ -134,11 +134,11 @@ const Home = () => {
                 <div className="mt-12 flex flex-col items-center">
                     <div className="flex items-center space-x-2 mt-1">
                         <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-                        <h2 className="text-orange-600 font-semibold text-2xl">
+                        <h2 className="text-orange-600 font-semibold text-2xl font-poppins">
                             Why Cadsum Plugins?
                         </h2>
                     </div>
-                    <p className="mt-2 text-base">
+                    <p className="mt-2 text-base text-gray-950 font-lato">
                         The Cadsum plugin delivers rapid, precise results with an intuitive
                         interface, 24/7 support, and flexible customization.
                     </p>
@@ -146,38 +146,38 @@ const Home = () => {
 
                 <div className="flex justify-center  mt-8 ">
                     <div className="max-w-sm p-4 w-1/4 m-3 bg-white border border-gray-200 rounded-lg shadow">
-                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900">
+                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900 font-poppins">
                             Rapid and Precise Results
                         </h5>
-                        <p className="mb-3 font-normal text-gray-500 ">
+                        <p className="mb-3 font-normal text-gray-800 text-base font-lato">
                             Cadsum plugin delivers rapid and precise results, ensuring
                             efficiency in your workflow.
                         </p>
                     </div>
 
                     <div className="max-w-sm p-4 w-1/4 m-3 bg-white border border-gray-200 rounded-lg shadow">
-                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900">
+                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900 font-poppins">
                             Simple & User-friendly Interface
                         </h5>
-                        <p className="mb-3 font-normal text-gray-500 ">
+                        <p className="mb-3 font-normal text-gray-800 text-base font-lato">
                             The Cadsum plugin features an intuitive, user-friendly interface.
                         </p>
                     </div>
 
                     <div className="max-w-sm p-4 w-1/4 m-3 bg-white border border-gray-200 rounded-lg shadow">
-                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900">
+                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900 font-poppins">
                             24/7 Quick Support
                         </h5>
-                        <p className="mb-3 font-normal text-gray-500 ">
+                        <p className="mb-3 font-normal text-gray-800 text-base font-lato">
                             Free, round-the-clock support is available for your convenience.
                         </p>
                     </div>
 
                     <div className="max-w-sm p-4 w-1/4 m-3 bg-white border border-gray-200 rounded-lg shadow">
-                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900">
+                        <h5 className="mb-2 text-base font-semibold tracking-tight text-gray-900 font-poppins">
                             Flexible Plugin Customization
                         </h5>
-                        <p className="mb-3 font-normal text-gray-500 ">
+                        <p className="mb-3 font-normal text-gray-800 text-base font-lato">
                             Cadsum provides on-demand customization to enhance functionality &
                             specific needs.
                         </p>
@@ -191,9 +191,9 @@ const Home = () => {
                 <div className="flex flex-col items-center">
                     <div className="flex items-center space-x-2 mt-1">
                         <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-                        <h2 className="text-orange-600 font-semibold text-2xl">Our Services</h2>
+                        <h2 className="text-orange-600 font-semibold text-2xl font-poppins">Our Services</h2>
                     </div>
-                    <p>Cadsum provides various services in CAD/CAM</p>
+                    <p className='font-lato text-base text-gray-900'>Cadsum provides various services in CAD/CAM</p>
                 </div>
 
                 <div className="flex justify-center mt-8">
@@ -235,11 +235,11 @@ const Home = () => {
                             </g>
                         </svg>{" "}
                         <a href="#">
-                            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+                            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 font-poppins">
                                 CAD Development
                             </h5>
                         </a>
-                        <p className="font-normal text-gray-500 ">
+                        <p className="font-normal text-base text-gray-800 font-lato">
                             We develop CAD software plugins and applications based on Autodesk
                             software as AutoCAD, Revit, Navisworks, Inventor Fusion 360 and
                             forge platform. We also develop plugins based on Solidworks and
@@ -279,11 +279,11 @@ const Home = () => {
                             </g>
                         </svg>
                         <a href="#">
-                            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+                            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 font-poppins">
                                 CAD Plugin Customization
                             </h5>
                         </a>
-                        <p className="font-normal text-gray-500 ">
+                        <p className="font-normal text-base text-gray-800  font-lato">
                             Customize and develop new plugins as per user requirements. We also
                             customize the user’s existing plugins. Services are available to
                             develop plugins based on Autodesk software like AutoCAD, Revit,
@@ -316,11 +316,11 @@ const Home = () => {
                             </g>
                         </svg>
                         <a href="#">
-                            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900">
+                            <h5 className="mb-2 text-2xl font-semibold tracking-tight text-gray-900 font-poppins">
                                 CAD Counsulting
                             </h5>
                         </a>
-                        <p className="font-normal text-gray-500 ">
+                        <p className="font-normal text-base text-gray-800  font-lato">
                             Consulting services are available to develop CAD/CAM plugins and
                             SDKs. For more information please contact at support@cadsum.com
                         </p>
@@ -338,18 +338,17 @@ const Home = () => {
 
             <div className="bg-white p-20 pr-32 pl-32">
                 <div className="flex  justify-center">
-                    <div className="mr-40">
-                        <h2 className="text-2xl font-bold text-gray-800">
-                            Features & Benifits
-                        </h2>
-                        <p className="text-gray-600 mt-4 mb-8">
-                            Cadsum plugins is the ultimate choice for exporting files at
-                            diffrent settings.
-                        </p>
 
+                <div className="mr-40">
+                    <div className="flex items-center space-x-2 mt-1">
+                        <hr className="w-12 border-t-2 border-orange-500 mt-2" />
+                        <h2 className="text-orange-600 font-semibold text-2xl font-poppins">Features & Benifits</h2>
+                    </div>
+                    <p className='mt-4 font-lato text-base text-gray-900'>Cadsum plugins is the ultimate choice for exporting files at
+                    diffrent settings.</p> 
                         <button
                             type="button"
-                            className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white focus:outline-none bg-orange-500 rounded-full  hover:bg-orange-600 hover:text-white"
+                            className="py-2.5 px-5 me-2 mb-2 mt-12 text-sm font-medium text-white focus:outline-none bg-orange-500 rounded-full  hover:bg-orange-600 hover:text-white font-poppins"
                         >
                             Explore Products
                         </button>
@@ -358,8 +357,8 @@ const Home = () => {
                     <div className="container mx-auto px-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
                             <div className="bg-white p-4 rounded-sm border border-black ">
-                                <h2 className="text-xl font-semibold mb-2">Boost quality</h2>
-                                <p>
+                                <h2 className="text-xl font-semibold mb-2 font-poppins text-gray-900">Boost quality</h2>
+                                <p className='font-lato text-base text-gray-800'>
                                     Cadsum products exports best quality of outputs with precise
                                     results.
                                 </p>{" "}
@@ -367,53 +366,58 @@ const Home = () => {
                             </div>
 
                             <div className="bg-white p-4  rounded-sm border border-black ">
-                                <h2 className="text-xl font-semibold mb-2">
+                                <h2 className="text-xl font-semibold mb-2 font-poppin text-gray-900">
                                     Multiple Licenses
                                 </h2>
-                                <p>
+                                <p className='font-lato text-gray-800'>
                                     Our licenses are available in Anual, Perpitual, and Network
-                                    Licenses
+                                    Licenses.
                                 </p>{" "}
 
                             </div>
 
                             <div className="bg-white p-4 rounded-sm border border-black ">
-                                <h2 className="text-xl font-semibold mb-2">Low Cost</h2>
-                                <p>
+                                <h2 className="text-xl font-semibold mb-2 font-poppins text-gray-900">Low Cost</h2>
+                                <p className='font-lato text-gray-800'>
                                     Get the best value for your money with our affordable pricing.
                                 </p>{" "}
 
                             </div>
 
                             <div className="bg-white p-4 rounded-sm border border-black ">
-                                <h2 className="text-xl font-semibold mb-2">
+                                <h2 className="text-xl font-semibold mb-2 font-poppins text-gray-900">
                                     Free Technical Support
                                 </h2>
-                                <p>We offers free technical support to help you with issue.</p>{" "}
+                                <p className='font-lato text-base text-gray-800'>We offers free technical support to help you with issue.</p>{" "}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="pt-16 pb-16 pl-32 pr-32  text-center bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/alex-tech/image/upload/v1723999420/Cadsum/Home/Precise_Result_Banner_eop5gz.jpg')]">
-                <h2 className="text-xl">Exporting with Precise Results</h2>
-                <p className="mt-4">
+            <div
+      className="pt-16 pb-16 pl-32 pr-32 text-center bg-cover bg-center bg-no-repeat"
+      style={{
+        backgroundImage: "url('/Banners/Precise Result Banner.jpg')"
+      }}
+    >
+                <h2 className="text-xl font-poppins text-gray-950">Exporting with Precise Results</h2>
+                <p className="mt-4 font-lato text-base text-gray-800 ">
                     Cadsum plugins undergo in Multiple test cases to deliver the precise
-                    output of the model
+                    output of the model.
                 </p>
             </div>
 
             <div className="mt-12 flex flex-col items-center">
                 <div className="flex items-center space-x-2 mt-1">
                     <hr className="w-12 border-t-4 border-orange-500 mt-2" />
-                    <h2 className="text-orange-600 font-bold text-2xl">Clients Feedback</h2>
+                    <h2 className="text-orange-600 font-bold text-2xl font-poppins">Clients Feedback</h2>
                 </div>
                 <div className="flex">
-                    <p className="text-3xl text-black font-bold mr-2">
+                    <p className="text-xl text-gray-900 font-bold mr-2 font-lato">
                         What's Our Clients Say About
                     </p>
-                    <p className="text-3xl text-orange-600 font-bold">Cadsum</p>
+                    <p className="text-xl text-orange-600 font-bold font-lato">Cadsum</p>
                 </div>
             </div>
 
@@ -421,7 +425,7 @@ const Home = () => {
                 <section className="max-w-screen-xl  mx-auto text-center">
                     <figure className="max-w-screen-md mx-auto">
                         <svg
-                            className="h-12 mx-auto mb-3 text-gray-400"
+                            className="h-8 mx-auto mb-3 text-gray-400"
                             viewBox="0 0 24 27"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
@@ -432,7 +436,7 @@ const Home = () => {
                             />
                         </svg>
                         <blockquote>
-                            <p className="text-xl font-medium text-gray-900 md:text-2xl">
+                            <p className="text-lg font-medium text-gray-800 md:text-lg font-lato">
                                 "Landwind is just awesome. It contains tons of predesigned
                                 components and pages starting from login screen to complex
                                 dashboard. Perfect choice for your next SaaS application."
@@ -440,7 +444,7 @@ const Home = () => {
                         </blockquote>
                         <figcaption className="flex items-center justify-center mt-6 space-x-3">
                             <div className="flex items-center divide-x-2 divide-gray-500">
-                                <div className="pr-3 font-medium text-gray-900 ">Micheal Gough</div>
+                                <div className="pr-3 font-medium text-gray-900 font-poppins">Micheal Gough</div>
                             </div>
                         </figcaption>
                     </figure>
@@ -453,9 +457,9 @@ const Home = () => {
   <div className="flex flex-col items-center">
     <div className="flex items-center space-x-2 mt-1">
       <hr className="w-12 border-t-2 border-orange-500 mt-2" />
-      <h2 className="text-orange-500 font-semibold text-2xl">Our Clients</h2>
+      <h2 className="text-orange-500 font-semibold text-2xl font-poppins">Our Clients</h2>
     </div>
-    <p className="mt-2 text-base text-black">
+    <p className="mt-2 text-base text-black font-lato">
       We are trusted by the world’s most innovative teams
     </p>
   </div>

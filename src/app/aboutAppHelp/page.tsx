@@ -3,14 +3,25 @@ import React from 'react'
 const AboutAppHelp = () => {
     return (
         <div>
-            <div className="w-full text-center text-gray-900 py-16 bg-gray-300 mb-20">
-                <h1 className="text-3xl font-bold">About App Help</h1>
+            <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-64 flex items-center justify-center">
+                <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
+                <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 pr-16 pl-16 rounded-lg">
+                    <h1 className="text-4xl text-gray-800 font-bold font-poppins">About App Help</h1>
+                    <p className="mt-2 text-lg text-gray-800 font-lato">
+                    Product Help Page.
+                    </p>
+                </div>
+                </div>
+            </header>
+           
 
-            </div>
+            <div className=" text-base text-gray-900 font-normal ml-48 mr-48 font-lato bg-white rounded p-10 m-20">
+                <div className='justify-center flex'>
+                <img  src="\Images\App Help Image.png"/>
+                </div>
 
-            <div className=" text-base text-gray-900 font-normal ml-48 mr-48">
-
-                <p className="mb-4"><b>1. Product Name: </b> This represents the product name.</p>
+                <p className="mb-4 mt-4"><b>1. Product Name: </b> This represents the product name.</p>
+                <p className="mb-4 mt-4"><b>2. Product Version: </b> This represents the version of product.</p>
                 <p className="mb-4"><b>3. License Type : </b> This represents the current license type of the product.</p>
                 <p className="mb-2">There are 4-types of licenses we provides: </p>
                 <ul className="list-decimal mx-10 mb-4">
