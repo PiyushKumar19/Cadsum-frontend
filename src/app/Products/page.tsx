@@ -31,55 +31,17 @@ const Products = () => {
     <div>
       <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-96 flex items-center justify-center">
         <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
-<<<<<<< HEAD
-          <div className="bg-gradient-to-r from-yellow-100 to-orange-300 p-8 rounded-lg">
-            <h1 className="text-4xl text-gray-800 font-bold">Products</h1>
-            <p className="mt-2 text-lg text-gray-800">
-              Explore our range of innovative plugins that simplify integration
-=======
+
           <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 rounded-lg">
             <h1 className="text-4xl text-gray-800 font-bold font-poppins">Products</h1>
             <p className="mt-2 text-lg text-gray-800 font-lato">
             Explore our range of innovative plugins that simplify integration
->>>>>>> 06f99241e2e22a220c9bb4e5e987e39979821aec
               and boost productivity.
             </p>
           </div>
         </div>
       </header>
 
-<<<<<<< HEAD
-      <div className="flex justify-center items-center pt-3 pb-3 pl-8 pr-8 text-white bg-gray-800">
-        <p>
-          All our products are available in Single and Network Licenses
-        </p>
-      </div>
-
-      <div>
-        <div className="text-center mt-10">
-          {["All Products", "Revit", "AutoCAD", "Inventor", "Fusion", "Other"].map((category) => (
-            <button
-              key={category}
-              type="button"
-              className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-
-        <div className="flex justify-center flex-wrap">
-          {
-            products.length > 0 ? (
-              products.map((product) => {
-                console.log("---> product", product); // Log the product here
-                return <ProductCard key={product.id} product={product} />;
-              })
-            ) : (
-              <p>No products available</p>
-            )
-          }
-=======
       <div className="flex justify-center items-center  pt-3 pb-3 pl-8 pr-8 text-white bg-gray-800">
                 <p className='font-lato'>
                 All our products are available in Single and Network Licenses
@@ -166,7 +128,6 @@ const Products = () => {
               </div>
             </div>
           </div>
->>>>>>> 06f99241e2e22a220c9bb4e5e987e39979821aec
         </div>
       </div>
     </div>
