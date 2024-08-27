@@ -11,13 +11,14 @@ type Product = {
     supportedOS: string;
     supportedLanguage: string;
     screenshots: string[];
-    licensingPlans: LicensePlans[]
+    licensePlans: LicensePlans[]
   };
 
 type LicensePlans = {
   planId: string;
   planName: string;
-  planPrice: number;
   isSingleMachine: boolean;
   isMultiMachine: boolean;
+  singleMachinePrice: number;
+  multiMachinePrice: number;
 }

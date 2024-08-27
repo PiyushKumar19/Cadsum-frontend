@@ -22,7 +22,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>How to download free trail of CADSUM plugin?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
@@ -36,7 +36,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>How to get paid version license of CADSUM plugin?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
@@ -50,7 +50,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>How to activate license?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
@@ -64,7 +64,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>What is the difference between Trail and Paid version plugins?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
@@ -78,7 +78,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>How to install/uninstall CADSUM plugins?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
@@ -92,7 +92,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>How to use CADSUM SDKs?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
@@ -106,7 +106,7 @@ const FAQ = () => {
                             <summary className="flex justify-between items-center font-medium cursor-pointer list-none font-poppins">
                                 <span>Can we upgrade our existing plugin to latest plugin?</span>
                                 <span className="transition group-open:rotate-180">
-                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
+                                    <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24"><path d="M6 9l6 6 6-6"></path>
                                     </svg>
                                 </span>
                             </summary>
