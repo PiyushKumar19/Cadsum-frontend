@@ -26,8 +26,14 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=43090b63-b91a-4a53-97e9-695ffa412b8b`); // Replace with the actual API endpoint
-                setProduct(response.data);
+                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=9769c38b-9626-411a-b2d0-83378a17e409`);
+                const productData: Product = {
+                    ...response.data,
+                    licensingPlans: response.data.licensePlans ?? [], // Default to an empty array if undefined
+                };
+                console.log("---> Licensing Plans from response", response.data.licensePlans);
+                console.log("---> Licensing Plans", productData.licensePlans);
+                setProduct(productData);
             } catch (err) {
                 if (err instanceof Error) {
                     setError(err.message);
@@ -41,6 +47,9 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
 
         fetchProduct();
     }, []);
+
+
+    const images = product?.screenshots || [];
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>Error: {error}</p>;
@@ -56,7 +65,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                     }}
                 >
                     <div className='pl-12'>
-                        <img src='E:\\Mod Mon\\evently Mk01\\CadsumAPI\\CadsumAPI\\wwwroot\\Product\\Logo\\43090b63-b91a-4a53-97e9-695ffa412b8b\\Chad43090b63-b91a-4a53-97e9-695ffa412b8b.jpeg' className='w-36 h-36' alt='Image'></img>
+                        <img src={product?.productLogo} className='w-36 h-36' alt='Image'></img>
                     </div>
                     <div className='flex flex-col w-64 p-3 justify-start'>
                         <h4 className='text-xl font-semibold'>{product?.productName}</h4>
@@ -100,7 +109,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                             <hr className='my-2 mx-20 border-gray-500' />
                             <div className='w-full px-11 py-1 flex-col items-center justify-center'>
                                 <label className='text-slate-600 text-base font-medium'>Autodesk Revit: </label><br />
-                                <text className='text-slate-600 text-sm font-light'>Version: 2024, 2023, 2022, 2021</text>
+                                <p className='text-slate-600 text-sm font-light'>Version: 2024, 2023, 2022, 2021</p>
                             </div>
                             <div className='grid grid-cols-2 items-center justify-items-center'>
                                 <div className='w-1/2'>
@@ -212,10 +221,10 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
 
                     <div className="flex justify-center w-full max-w-[90vw]">
                         <div className="w-1/2 p-4">
-                            {/* <ImageCarousel images={product?.screenshots} /> */}
+                            <ImageCarousel images={images} />
                         </div>
                         <div className="w-1/2 p-4">
-                            <VideoPlayer src="SnapSave.io-Docker Tutorial for Beginners [FULL COURSE in 3 Hours]-(1080p).mp4" />
+                            <VideoPlayer src="#" poster=''/>
                         </div>
                     </div>
                 </div>
@@ -225,18 +234,14 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                             <label className='py-5 text-center font-semibold text-2xl text-orange-600'>Licensing Plans</label>
                         </div>
                         <div className='flex items-center justify-center ease-in duration-200'>
-                            <div className='px-4'>
-                                <PlanCard />
-                            </div>
-                            <div className='px-4'>
-                                <PlanCard />
-                            </div>
-                            <div className='px-4'>
-                                <PlanCard />
-                            </div>
-                            <div className='px-4'>
-                                <PlanCard />
-                            </div>
+                            {product?.licensePlans.map((plan) => {
+                                console.log("Licensing Plan:", plan); // <-- Log each plan to see if it's defined
+                                return (
+                                    <div key={plan.planId} className="px-4">
+                                        <PlanCard plan={plan} />
+                                    </div>
+                                );
+                            })}
                         </div>
                     </div>
                 </div>
@@ -247,12 +252,12 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                             <label className='py-1 px-4 text-start font-semibold text-2xl text-orange-600'>Related Products</label>
                         </div>
                     </div>
-                    <div className='flex flex-nowrap'>
+                    {/* <div className='flex flex-nowrap'>
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
                         <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>

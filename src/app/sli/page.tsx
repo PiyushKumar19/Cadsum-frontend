@@ -28,15 +28,12 @@ export default function EmblaCarousel({ images }: EmblaCarouselProps) {
               <img src={image} alt="Product" className="w-full" />
             </div>
           ))}
-          <div className="embla__slide flex items-center justify-center">
+          {/* <div className="embla__slide flex items-center justify-center">
             <video controls className="w-full h-auto">
               <source src="SnapSave.io-Docker Tutorial for Beginners [FULL COURSE in 3 Hours]-(1080p).mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
-          </div>
-          <div className="embla__slide flex items-center justify-center">
-            Slide 3
-          </div>
+          </div> */}
         </div>
       </div>
 
