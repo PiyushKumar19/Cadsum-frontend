@@ -3,11 +3,18 @@ import React from 'react'
 const PublisherPrivacyPolicy = () => {
     return (
         <div>
-            <div className="container mx-auto text-center text-gray-900 py-16 bg-gray-300 mb-20">
-                <h1 className="text-3xl font-bold">Publisher Privacy Policies</h1>
-                <p className="mt-2">"Empowering Transparency: Your Privacy, Our Commitment."</p>
-            </div>
-            <div className=" text-base text-gray-900 font-normal ml-48 mr-48">
+             <header className="bg-gradient-to-r from-yellow-100 to-orange-300 h-64 flex items-center justify-center">
+                <div className="relative container mx-auto text-center text-white h-full flex items-center justify-center">
+                <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 pr-16 pl-16 rounded-lg">
+                    <h1 className="text-4xl text-gray-800 font-bold font-poppins">Publisher Privacy Policy</h1>
+                    <p className="mt-2 text-lg text-gray-800 font-lato">
+                    Empowering Transparency: Your Privacy, Our Commitment.
+                    </p>
+                </div>
+                </div>
+            </header>
+
+            <div className=" text-base text-gray-900 font-normal ml-48 mt-12 mr-48 font-lato">
                 <p className="mb-4">Your privacy is important to us. It is cadsum’s policy to respect your privacy regarding any information we may collect from you across our website, https://cadsum.com, and other sites we own and operate.</p>
                 <p className="mb-4">We only ask for personal information when we truly need it to provide a service to you. We collect it by fair and lawful means, with your knowledge and consent. We also let you know why we’re collecting it and how it will be used.</p>
                 <p className="mb-4">We only retain collected information for as long as necessary to provide you with your requested service. What data we store, we’ll protect within commercially acceptable means to prevent loss and theft, as well as unauthorized access, disclosure, copying, use or modification.</p>
