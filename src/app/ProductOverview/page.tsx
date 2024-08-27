@@ -26,7 +26,6 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-<<<<<<< HEAD
                 const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=9769c38b-9626-411a-b2d0-83378a17e409`);
                 const productData: Product = {
                     ...response.data,
@@ -35,10 +34,6 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                 console.log("---> Licensing Plans from response", response.data.licensePlans);
                 console.log("---> Licensing Plans", productData.licensePlans);
                 setProduct(productData);
-=======
-                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=2e0c1cb8-88c1-44ca-be3c-9b35ae7f8aac`); // Replace with the actual API endpoint
-                setProduct(response.data);
->>>>>>> 06f99241e2e22a220c9bb4e5e987e39979821aec
             } catch (err) {
                 if (err instanceof Error) {
                     setError(err.message);
@@ -70,11 +65,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                     }}
                 >
                     <div className='pl-12'>
-<<<<<<< HEAD
                         <img src={product?.productLogo} className='w-36 h-36' alt='Image'></img>
-=======
-                        <img src='/stl Icon.png' className='w-36 h-36' alt='Image'></img>
->>>>>>> 06f99241e2e22a220c9bb4e5e987e39979821aec
                     </div>
                     <div className='flex flex-col w-64 p-3 justify-start'>
                         <h4 className='text-xl font-semibold'>{product?.productName}</h4>
@@ -230,11 +221,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
 
                     <div className="flex justify-center w-full max-w-[90vw]">
                         <div className="w-1/2 p-4">
-<<<<<<< HEAD
                             <ImageCarousel images={images} />
-=======
-                            <ImageCarousel />
->>>>>>> 06f99241e2e22a220c9bb4e5e987e39979821aec
                         </div>
                         <div className="w-1/2 p-4">
                             <VideoPlayer src="#" poster=''/>

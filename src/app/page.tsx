@@ -3,15 +3,15 @@ import React from 'react'
 const Home = () => {
   return (
     <div>
-        <div className="container mx-auto text-center text-white py-28 bg-slate-600">
+      <div className="container mx-auto text-center text-white py-28 bg-slate-600">
         <h1 className="text-3xl font-bold">Home</h1>
         <p className="mt-2">Simplyfy your cad conversions</p>
       </div>
 
       <div>
-            <h1 className="text-4xl text-center mt-5 font-semibold">Our Latest Plugins</h1>
+        <h1 className="text-4xl text-center mt-5 font-semibold">Our Latest Plugins</h1>
 
-        </div>
+      </div>
 
       <div className="flex justify-center">
         <div className="max-w-xs rounded overflow-hidden shadow-lg m-10">
@@ -85,8 +85,8 @@ const Home = () => {
           <div className="ml-40">
             <h2 className="text-2xl font-bold text-gray-800">CAD Plugin Customization</h2>
             <p className="text-gray-600 mt-4">
-            Customize and develop new plugins as per user requirements. We also customize the user’s existing plugins. Services are available to develop plugins based on Autodesk software like AutoCAD, Revit, Navisworks, Inventor, Fusion 360 and forge platform. Consulting services are available to develop CAD/CAM plugins and SDKs.
-            For more information please contact at support@cadsum.com
+              Customize and develop new plugins as per user requirements. We also customize the user’s existing plugins. Services are available to develop plugins based on Autodesk software like AutoCAD, Revit, Navisworks, Inventor, Fusion 360 and forge platform. Consulting services are available to develop CAD/CAM plugins and SDKs.
+              For more information please contact at support@cadsum.com
             </p>
           </div>
         </div>
@@ -97,8 +97,8 @@ const Home = () => {
           <div className="mr-40">
             <h2 className="text-2xl font-bold text-gray-800">CAD Development</h2>
             <p className="text-gray-600 mt-4">
-            We develop CAD software plugins and applications based on Autodesk software as AutoCAD, Revit, Navisworks, Inventor Fusion 360 and forge platform. We also develop plugins based on Solidworks and Sketchup. You can use our plugins as a SDK (Software Development Kit) with other CAD softwares.
-            For more information please contact at support@cadsum.com
+              We develop CAD software plugins and applications based on Autodesk software as AutoCAD, Revit, Navisworks, Inventor Fusion 360 and forge platform. We also develop plugins based on Solidworks and Sketchup. You can use our plugins as a SDK (Software Development Kit) with other CAD softwares.
+              For more information please contact at support@cadsum.com
             </p>
           </div>
           <img
