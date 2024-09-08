@@ -4,6 +4,7 @@ type Product = {
     productLogo: string;
     productName: string[];
     description: string;
+    productFilePath: string;
     price: number;
     version: string;
     releaseOn: string; // or Date if you're converting it later

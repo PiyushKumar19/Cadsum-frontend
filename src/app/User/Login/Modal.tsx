@@ -15,10 +15,13 @@ const Modal: React.FC<ModalProps> = ({ show, onClose, children }) => {
       onClick={onClose}
     >
       <div
-        className="bg-white p-6 rounded shadow-lg"
+        className="relative bg-transparent p-4 rounded shadow-lg"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="float-right" onClick={onClose}>
+        <button
+          className="absolute top-2 right-2 text-gray-700 text-xl size-10 hover:text-gray-900"
+          onClick={onClose}
+        >
           &times;
         </button>
         {children}

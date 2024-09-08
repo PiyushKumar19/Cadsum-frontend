@@ -1,6 +1,15 @@
-import React from "react";
+import { Product } from "@/app/Interfaces/ProductList/ProductListDto";
+import Products from "@/app/Products/AllProducts/page";
+import React, { useEffect, useState } from "react";
+import { List } from "react-feather";
 
 const ProductList = () => {
+
+  // const [products, setProducts] = useState(List<Product> || null)
+  // useEffect(() => {
+
+  // }, [products]) // this depedency array with products will make sure to re-render the page if new Data is added like new product
+
   return (
     <div className="bg-white p-8 rounded-md w-full">
       <div className="flex items-center justify-between pb-6">
