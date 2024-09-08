@@ -1,9 +1,10 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Modal from '../User/Login/Modal'
 import Login from '../User/Login/page'
 import ContactUs from '../contactUs/page'
+import Cookies from 'js-cookie'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +14,18 @@ const NavBar = () => {
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
+
+  // Check if the user is authenticated
+  const checkAuth = () => {
+    const authToken = Cookies.get('authToken');
+    if (!authToken) {
+      openModal();
+    }
+  };
+
+  useEffect(() => {
+    // checkAuth();
+  }, [])
 
   return (
     <div className="w-full">
@@ -55,7 +68,7 @@ const NavBar = () => {
                   <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
                     <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
-                    <g id="SVGRepo_iconCarrier"> 
+                    <g id="SVGRepo_iconCarrier">
                       <path fillRule="evenodd" clipRule="evenodd" d="M12.7071 14.7071C12.3166 15.0976 11.6834 15.0976 11.2929 14.7071L6.29289 9.70711C5.90237 9.31658 5.90237 8.68342 6.29289 8.29289C6.68342 7.90237 7.31658 7.90237 7.70711 8.29289L12 12.5858L16.2929 8.29289C16.6834 7.90237 17.3166 7.90237 17.7071 8.29289C18.0976 8.68342 18.0976 9.31658 17.7071 9.70711L12.7071 14.7071Z" fill="#000000">
                       </path>
                     </g>
@@ -86,18 +99,18 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-x-1">
-          <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block" 
-          type="button"
-          onClick={openModal}
+          <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
+            type="button"
+            onClick={openModal}
           >
             <span>
               <svg width="24px" height="24px" fill="#000000" viewBox="0 0 24 24" id="user" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier">
-              <path id="primary" d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z"></path></g>
-              </svg>    
-               </span>
+                <path id="primary" d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z"></path></g>
+              </svg>
+            </span>
           </button>
-          <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block" 
-          type="button">
+          <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
+            type="button">
             <span>Get Quote</span>
           </button>
         </div>
@@ -111,35 +124,8 @@ const NavBar = () => {
       </nav>
 
       <Modal show={showModal} onClose={closeModal}>
-        <Login />
+        <Login onSuccess={closeModal} />  {/* Pass closeModal to Login */}
       </Modal>
-
-      {/* <div className="max-w-screen-md py-12 mx-auto">
-          <div
-            className="relative flex flex-col mb-12 overflow-hidden text-gray-700 bg-white shadow-md rounded-xl bg-clip-border">
-            <img alt="nature" className="h-[32rem] w-full object-cover object-center"
-              src="https://images.unsplash.com/photo-1485470733090-0aae1788d5af?ixlib=rb-4.0.3&amp;ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&amp;auto=format&amp;fit=crop&amp;w=2717&amp;q=80" />
-          </div>
-          <h2
-            className="mb-2 block font-sans text-4xl font-semibold leading-[1.3] tracking-normal text-blue-gray-900 antialiased">
-            What is Material Tailwind
-          </h2>
-          <p className="block font-sans text-base antialiased font-normal leading-relaxed text-gray-700">
-            Can you help me out? you will get a lot of free exposure doing this
-            can my website be in english?. There is too much white space do less
-            with more, so that will be a conversation piece can you rework to
-            make the pizza look more delicious other agencies charge much lesser
-            can you make the blue bluer?. I think we need to start from scratch
-            can my website be in english?, yet make it sexy i&apos;ll pay you in
-            a week we don&apos;t need to pay upfront i hope you understand can
-            you make it stand out more?. Make the font bigger can you help me
-            out? you will get a lot of free exposure doing this that&apos;s
-            going to be a chunk of change other agencies charge much lesser. Are
-            you busy this weekend? I have a new project with a tight deadline
-            that&apos;s going to be a chunk of change. There are more projects
-            lined up charge extra the next time.
-          </p>
-        </div> */}
 
     </div>
   )
