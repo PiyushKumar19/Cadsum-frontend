@@ -15,6 +15,9 @@ const NavBar = () => {
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
+  const [isClient, setIsClient] = useState(false);  // New state to detect client-side rendering
+  const [token, setToken] = useState<string | null>(null);  // Token state
+
 
   const router = useRouter();
 
@@ -26,15 +29,25 @@ const NavBar = () => {
     }
   };
 
+  
   useEffect(() => {
     // checkAuth();
-  }, [])
+    // This runs only on the client side
+    setIsClient(true);
+    const authToken = Cookies.get('authToken');
+    setToken(authToken || null);  // Set token from cookie on client
+  }, []);
+
+  if (!isClient) {
+    // Avoid rendering until client-side
+    return null;
+  }
 
   return (
     <div className="w-full">
       <nav className="sticky top-0 z-10 flex items-center justify-between w-full px-4 py-2 text-gray-700 bg-white border border-white shadow-md bg-opacity-100 backdrop-blur-2xl backdrop-saturate-200 lg:px-8 lg:py-4">
         <a href="#" className="mr-4 block cursor-pointer py-1.5">
-          <Image src="/image.png" alt="Logo" width={85} height={85} />
+          <Image src="/logo.png" alt="Logo" width={85} height={85}></Image>
         </a>
         <div className="flex items-center gap-4 justify-center">
           <ul className="flex flex-col gap-2 mt-2 mb-4 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -101,24 +114,32 @@ const NavBar = () => {
                   </div>
                 )}
               </div>
-
-              {/* <a href="/contactUs" className="flex items-center hover:after:content-[''] hover:after:block hover:after:absolute hover:after:bottom-0 hover:after:left-0 hover:after:w-full hover:after:h-0.5 hover:after:bg-orange-500">
-                Help
-              </a> */}
             </li>
           </ul>
         </div>
         <div className="flex items-center gap-x-1">
-          <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
-            type="button"
-            onClick={openModal}
-          >
-            <span>
-              <svg width="24px" height="24px" fill="#000000" viewBox="0 0 24 24" id="user" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier">
-                <path id="primary" d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z"></path></g>
-              </svg>
-            </span>
-          </button>
+        {token ? (
+            <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
+              type="button"
+              onClick={openModal}
+            >
+              <span>
+                <img src="/Images/User/user.png" alt="User" />
+              </span>
+            </button>
+          ) : (
+            <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
+              type="button"
+              onClick={openModal}
+            >
+              <span>
+                <svg width="24px" height="24px" fill="#000000" viewBox="0 0 24 24" id="user" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier">
+                  <path id="primary" d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z"></path></g>
+                </svg>
+              </span>
+            </button>
+          )}
+
           <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
             type="button">
             <span>Get Quote</span>

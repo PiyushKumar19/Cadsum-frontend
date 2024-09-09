@@ -11,7 +11,7 @@ const Footer = () => {
                             <div className="grid grid-cols-4 gap-14">
                                 <div className="mb-6 md:mb-0">
                                     <a href="https://cadsum.com/" className="flex mb-4 items-center">
-                                        <img src="https://res.cloudinary.com/alex-tech/image/upload/v1723138485/Cadsum/logo_cuy9dq.png" className="h-8 me-3" alt="Cadsum Logo" />
+                                        <img src="https://res.cloudinary.com/alex-tech/image/upload/v1723138485/Cadsum/logo_cuy9dq.png" className="h-8 me-3" alt="Cadsum Logo"></img>
                                     </a>
                                     <p className="text-gray-200 font-normal">
                                         CADSUM is a CAD software development company. We provide professional consultation and services to develop 3D CAD applications and plugins.

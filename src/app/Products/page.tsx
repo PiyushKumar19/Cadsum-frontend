@@ -7,6 +7,18 @@ import Link from 'next/link';
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [productCategory, setProductCategory] = useState('All Products');
+
+  function applyFilter(category: string) {
+    if (category === "All Products") {
+      setFilteredProducts(products);
+    } else if (category === "Others") {
+      setFilteredProducts(products.filter(product => product.category === "Others"));
+    } else {
+      setFilteredProducts(products.filter(product => product.category === category));
+    }
+  }
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,7 +38,9 @@ const Products = () => {
     fetchProducts();
   }, []);
 
-  console.log("---> from useEffect", products);
+  useEffect(() => {
+    applyFilter(productCategory);
+  }, [productCategory, products]);
 
   return (
     <div>
@@ -51,47 +65,20 @@ const Products = () => {
 
       <div>
         <div className="text-center mt-10">
-
-          <button
-            type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-          >
-            All Products
-          </button>
-          <button
-            type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-          >
-            Revit
-          </button>
-          <button
-            type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-          >
-            AutoCAD
-          </button>
-          <button
-            type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-          >
-            Inventor
-          </button>
-          <button
-            type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-          >
-            Fusion
-          </button>
-          <button
-            type="button"
-            className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border  hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
-          >
-            Other Products
-          </button>
+          {["All Products", "Revit", "AutoCAD", "Inventor", "Fusion", "Others"].map((category) => (
+            <button
+              key={category} // Unique key for each button
+              type="button"
+              className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
+              onClick={() => setProductCategory(category)}
+            >
+              {category}
+            </button>
+          ))}
         </div>
 
         <div className="flex justify-center">
-          {products.map((product) => (
+          {filteredProducts.map((product) => (
             <div className="max-w-xs hover:transform hover:scale-110 hover:duration-100 rounded overflow-hidden shadow-lg m-10">
               <Link href={`/Products/${product.id}`}>
                 <div className="cursor-pointer h-full flex flex-col justify-between">
@@ -100,7 +87,7 @@ const Products = () => {
                       className="w-2/4 h-auto object-contain mx-auto"
                       src={product.productLogo}
                       alt="Product Logo"
-                    />
+                    ></img>
                   </div>
                   <div className="bg-gray-200 px-2 py-2 mt-auto h-1/5">
                     <div className="font-bold text-base font-lato text-center">
