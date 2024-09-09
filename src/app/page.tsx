@@ -19,7 +19,7 @@ const Home = () => {
             className="w-full"
             src="https://res.cloudinary.com/alex-tech/image/upload/v1723372347/Cadsum/Products/Revit_STL_290_225_jez0t6.png"
             alt="STL exporter for Revit"
-          />
+          ></img>
           <div className="px-2 py-2">
             <div className="font-bold text-l mb-2 text-center">
               Cadsum STL exporter for Revit
@@ -32,7 +32,7 @@ const Home = () => {
             className="w-full"
             src="https://res.cloudinary.com/alex-tech/image/upload/v1723372347/Cadsum/Products/Revit_STL_290_225_jez0t6.png"
             alt="Sunset in the mountains"
-          />
+          ></img>
           <div className="px-2 py-2">
             <div className="font-bold text-l mb-2 text-center">
               Cadsum STL exporter for Revit
@@ -45,7 +45,7 @@ const Home = () => {
             className="w-full"
             src="https://res.cloudinary.com/alex-tech/image/upload/v1723372347/Cadsum/Products/Revit_STL_290_225_jez0t6.png"
             alt="Sunset in the mountains"
-          />
+          ></img>
           <div className="px-2 py-2">
             <div className="font-bold text-l mb-2 text-center">
               Cadsum STL exporter for Revit
@@ -81,7 +81,7 @@ const Home = () => {
             src="https://res.cloudinary.com/alex-tech/image/upload/v1663336532/Cadsum/Home/CAD_Customization_uctkgw.png"
             alt="Our Vision Image"
             className="w-1/2 md:w-1/3"
-          />
+          ></img>
           <div className="ml-40">
             <h2 className="text-2xl font-bold text-gray-800">CAD Plugin Customization</h2>
             <p className="text-gray-600 mt-4">
@@ -105,7 +105,7 @@ const Home = () => {
             src="https://res.cloudinary.com/alex-tech/image/upload/v1663336532/Cadsum/Home/CAD_Customization_2_vvpwza.png"
             alt="Our Goal Image"
             className="w-1/2 md:w-1/3"
-          />
+          ></img>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ export interface Product {
     id: string;
     productName: string;
     productLogo: string;
+    category: string;
     price: number;
     version: string;
     releasedOn: string;

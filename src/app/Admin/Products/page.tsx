@@ -14,11 +14,13 @@ const ProductList = () => {
   // }, [products]) // this depedency array with products will make sure to re-render the page if new Data is added like new product
 
   const [products, setProducts] = useState<Product[]>([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [pageSize, setPageSize] = useState(1);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://localhost:7214/api/Products/get-all-products');
+        const response = await fetch(`https://localhost:7214/api/Products/get-all-products?pageNumber=${pageNumber}&pageSize=${pageSize}`);
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
@@ -174,15 +176,17 @@ const ProductList = () => {
             </tbody>
           </table>
           <div className="px-5 py-5 bg-white border-t flex flex-col xs:flex-row items-center xs:justify-between">
-            <span className="text-xs xs:text-sm text-gray-900">
+            {/* <span className="text-xs xs:text-sm text-gray-900">
               Showing 1 to 4 of 50 Entries
-            </span>
+            </span> */}
             <div className="inline-flex mt-2 xs:mt-0">
-              <button className="text-sm text-indigo-50 transition duration-150 hover:bg-orange-600 bg-orange-500 font-semibold py-2 px-4 rounded-l">
+              <button className="text-sm text-indigo-50 transition duration-150 hover:bg-orange-600 bg-orange-500 font-semibold py-2 px-4 rounded-l"
+                onClick={() => setPageNumber(pageNumber-1)}>
                 Prev
               </button>
               &nbsp; &nbsp;
-              <button className="text-sm text-indigo-50 transition duration-150 hover:bg-orange-600 bg-orange-500 font-semibold py-2 px-4 rounded-r">
+              <button className="text-sm text-indigo-50 transition duration-150 hover:bg-orange-600 bg-orange-500 font-semibold py-2 px-4 rounded-r"
+                onClick={() => setPageNumber(pageNumber+1)}>
                 Next
               </button>
             </div>
