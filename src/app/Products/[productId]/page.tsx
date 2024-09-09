@@ -1,15 +1,16 @@
 'use client'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation';
+import { useRouter } from 'next/router';
 import ImageCarousel from '../../Components/ProductOverview/ImageSlider/page';
 import VideoPlayer from '../../Components/ProductOverview/VideoPlayer';
 import PlanCard from '../../Components/ProductOverview/planCard';
 import ProductCard from '../../Components/Products/productCard';
 import withAuth from '@/app/User/HighOrderComponent/WithAuth';
-import { DownloadFileButton } from './DownloadFileButton';
+import { DownloadFileButton } from '../AllProducts/DownloadFileButton';
 import Cookies from 'js-cookie';
 import Modal from '@/app/User/Login/Modal';
+import ReactPlayer from 'react-player';
 // import CallLogin from '@/app/User/CallLogin/page';
 
 // Define the props interface
@@ -17,7 +18,12 @@ interface ProductOverviewProps {
     productId: string;
 }
 
-const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
+const ProductOverview = ({ params } : {
+    params: {productId: string}
+}) => {
+    // const router = useRouter();
+    // const { productId } = router.query;
+  
     const [product, setProduct] = useState<Product | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -36,7 +42,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=e1e3c131-f147-4bf8-9e5b-ecfaf11d4f8e`);
+                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=${params.productId}`);
                 const productData: Product = {
                     ...response.data,
                     licensingPlans: response.data.licensePlans ?? [], // Default to an empty array if undefined
@@ -75,7 +81,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                     }}
                 >
                     <div className='pl-12'>
-                        <img src={product?.productLogo} className='w-36 h-36' alt='Image'></img>
+                        <img src={product?.productLogo} className='w-36 h-36 object-contain rounded-md' alt='Image'></img>
                     </div>
                     <div className='flex flex-col w-64 p-3 justify-start'>
                         <h4 className='text-xl font-semibold'>{product?.productName}</h4>
@@ -226,7 +232,17 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                             <ImageCarousel images={images} />
                         </div>
                         <div className="w-1/2 p-4">
-                            <VideoPlayer src="#" poster=''/>
+                            {product?.videoLink ? (
+                                <ReactPlayer
+                                    url={product.videoLink}
+                                    controls={true}
+                                    width="100%"
+                                    height="100%"
+                                />
+                            ) : (
+                                <p>No video available</p>
+                            )}
+
                         </div>
                     </div>
                 </div>

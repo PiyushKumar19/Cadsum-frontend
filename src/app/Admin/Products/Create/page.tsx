@@ -1,6 +1,7 @@
 'use client'
 import { FileUploadRequestDto } from '@/app/Interfaces/Product/Create/FileUploadRequestDto';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 
 const ProductCreate = () => {
@@ -16,6 +17,7 @@ const ProductCreate = () => {
     const [supportedLanguages, setSupportedLanguages] = useState('');
     const [category, setCategory] = useState('');
     const [appStoreLink, setAppStoreLink] = useState('');
+    const [videoLink, setVideoLink] = useState('');
     const [productFile, setProductFile] = useState<FileUploadRequestDto | null>(null);
     const [productLogo, setProductLogo] = useState<FileUploadRequestDto | null>(null);
     const [productGalleryImages, setProductGalleryImages] = useState<FileUploadRequestDto[]>([]);
@@ -185,6 +187,7 @@ const ProductCreate = () => {
             SupportedLanguages: supportedLanguages,
             VersionHistory: versionHistory,
             AppStoreLink: appStoreLink,
+            VideoLink: videoLink,
             ProductLogo: productLogo,
             ProductZipFile: productFile,
             ProductGalleryImages: productGalleryImages,
@@ -196,11 +199,16 @@ const ProductCreate = () => {
                 headers: { 'Content-Type': 'application/json' }
             });
             console.log('Product created successfully:', response.data);
+            checkAndSendToProductList();
         } catch (error) {
             console.error('Error creating product:', error);
         }
     };
     
+    const router = useRouter();
+    function checkAndSendToProductList() {
+        router.push('../Products')
+    }
 
     const inputClass = 'w-2/3 p-0.5 bg-transparent border-2 border-slate-400 rounded-sm';
     const fileInputClass = 'block w-4/6 text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100';
@@ -352,7 +360,10 @@ const ProductCreate = () => {
                     </div>
                     <div className='w-full'>
                         <label className='text-black text-sm w-full mr-2'>Product Video Link :</label>
-                        <input className={inputClass} />
+                        <input className={inputClass}
+                            type='text'
+                            value={videoLink}
+                            onChange={(e) => setVideoLink(e.target.value)} />
                     </div>
                     <div className='text-black font-base text-sm py-2'>
                 <label>Product Category: </label>

@@ -5,6 +5,7 @@ export interface Product {
     productLogo: string;
     price: number;
     version: string;
+    releasedOn: string;
   }
   
   // Define the structure of the API response

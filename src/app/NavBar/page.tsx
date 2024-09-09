@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Modal from '../User/Login/Modal'
 import Login from '../User/Login/page'
-import ContactUs from '../contactUs/page'
+import ContactUs from '../ContactUs/page'
 import Cookies from 'js-cookie'
+import { useRouter } from 'next/navigation'
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,6 +15,8 @@ const NavBar = () => {
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
+
+  const router = useRouter();
 
   // Check if the user is authenticated
   const checkAuth = () => {
@@ -77,14 +80,21 @@ const NavBar = () => {
                 {isOpen && (
                   <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                     <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                      {['License Policy', 'Activation Guide', 'Contact Us', 'FAQ', 'EULA'].map((category) => (
+                      {['License Policy', 'Activation Guide', 'Contact Us', 'FAQ', 'EULA'].map((page) => (
                         <a
-                          href=""
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                           role="menuitem"
-                          key={category}
+                          key={page}
+                          onClick={() => {
+                            if (page === 'Activation Guide') {
+                              router.push(`../activation-guide`)
+                            }
+                            else {
+                              router.push(`../${page.replace(' ', '')}`)
+                            }
+                          }}
                         >
-                          {category}
+                          {page}
                         </a>
                       ))}
                     </div>

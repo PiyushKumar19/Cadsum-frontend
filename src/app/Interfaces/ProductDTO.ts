@@ -11,6 +11,7 @@ type Product = {
     createdOn: string; // or Date if you're converting it later
     supportedOS: string;
     supportedLanguage: string;
+    videoLink: string;
     screenshots: string[];
     licensePlans: LicensePlans[]
   };
