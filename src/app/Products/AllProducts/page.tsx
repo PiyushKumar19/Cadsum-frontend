@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../../Components/Products/productCard';
 import { Product } from '../../Interfaces/ProductList/ProductListDto';
+import Link from 'next/link';
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -35,7 +36,7 @@ const Products = () => {
           <div className="bg-gradient-to-r from-yellow-100 to-orange-300  p-8 rounded-lg">
             <h1 className="text-4xl text-gray-800 font-bold font-poppins">Products</h1>
             <p className="mt-2 text-lg text-gray-800 font-lato">
-            Explore our range of innovative plugins that simplify integration
+              Explore our range of innovative plugins that simplify integration
               and boost productivity.
             </p>
           </div>
@@ -43,14 +44,14 @@ const Products = () => {
       </header>
 
       <div className="flex justify-center items-center  pt-3 pb-3 pl-8 pr-8 text-white bg-gray-800">
-                <p className='font-lato'>
-                All our products are available in Single and Network Licenses
-                </p>
-       </div>
+        <p className='font-lato'>
+          All our products are available in Single and Network Licenses
+        </p>
+      </div>
 
       <div>
         <div className="text-center mt-10">
-        
+
           <button
             type="button"
             className="py-2.5 px-5 me-2 mb-2 text-sm font-poppins font-medium text-gray-900 focus:outline-none bg-white rounded-full border hover:bg-orange-400 hover:text-white  focus:bg-orange-400 focus:text-white mr-5 shadow-sm"
@@ -90,44 +91,28 @@ const Products = () => {
         </div>
 
         <div className="flex justify-center">
-          <div className="max-w-xs rounded overflow-hidden shadow-lg m-10">
-            <img
-              className="w-full"
-              src="https://res.cloudinary.com/alex-tech/image/upload/v1723372347/Cadsum/Products/Revit_STL_290_225_jez0t6.png"
-              alt="STL exporter for Revit"
-            />
-            <div className="px-2 py-2">
-              <div className="font-bold text-base font-lato text-center">
-                Cadsum STL exporter for Revit
-              </div>
+          {products.map((product) => (
+            <div className="max-w-xs rounded overflow-hidden shadow-lg m-10">
+              <Link href={`/Products/${product.id}`}>
+                <div className="block cursor-pointer">
+                  <div className="flex justify-center">
+                    <img
+                      className="w-2/3 mx-auto"
+                      src={product.productLogo}
+                      alt="Product Logo"
+                    />
+                  </div>
+                  <div className="px-2 py-2">
+                    <div className="font-bold text-base font-lato text-center">
+                      {product.productName}
+                    </div>
+                  </div>
+                </div>
+              </Link>
             </div>
-          </div>
+          ))}
 
-          <div className="max-w-xs rounded overflow-hidden shadow-lg m-10">
-            <img
-              className="w-full"
-              src="https://res.cloudinary.com/alex-tech/image/upload/v1723372347/Cadsum/Products/Revit_STL_290_225_jez0t6.png"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-2 py-2">
-              <div className="font-bold text-base font-lato text-center">
-                Cadsum STL exporter for Revit
-              </div>
-            </div>
-          </div>
 
-          <div className="max-w-xs rounded overflow-hidden shadow-lg m-10">
-            <img
-              className="w-full"
-              src="https://res.cloudinary.com/alex-tech/image/upload/v1723372347/Cadsum/Products/Revit_STL_290_225_jez0t6.png"
-              alt="Sunset in the mountains"
-            />
-            <div className="px-2 py-2">
-              <div className="font-bold text-base font-lat text-center">
-                Cadsum STL exporter for Revit
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
