@@ -65,7 +65,7 @@ const ProductList = () => {
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return date.toLocaleString(); // returns a string in the format "MM/DD/YYYY, HH:MM:SS AM/PM"
+    return date.toLocaleString(); //  returns a string in the format "MM/DD/YYYY, HH:MM:SS AM/PM"
   };
 
   return (
