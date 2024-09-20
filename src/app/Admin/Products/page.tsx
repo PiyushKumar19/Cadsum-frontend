@@ -15,53 +15,58 @@ const ProductList = () => {
 
   const [products, setProducts] = useState<Product[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
-  const [pageSize, setPageSize] = useState(1);
+  const [pageSize, setPageSize] = useState(10);
 
-  useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch(`https://localhost:7214/api/Products/get-all-products?pageNumber=${pageNumber}&pageSize=${pageSize}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch products");
-        }
-
-        const data = await response.json();
-        console.log(data);
-        setProducts(data.products);
-      } catch (error) {
-        console.error("Error fetching products:", error);
+  const fetchProducts = async () => {
+    try {
+      const response = await fetch(
+        `https://localhost:7214/api/Products/get-all-products?pageNumber=${pageNumber}&pageSize=${pageSize}`
+      );
+      if (!response.ok) {
+        throw new Error("Failed to fetch products");
       }
-    };
 
-    fetchProducts();
-  }, []);
+      const data = await response.json();
+      setProducts(data.products);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   function sentToCreate() {
     router.push('./Products/Create')
   }
+  
+  // Fetch products on component mount and whenever the page changes
+  useEffect(() => {
+    fetchProducts();
+  }, [pageNumber, pageSize]);
 
-  function deleteOperation (productId: string) {
-    handleDelete(productId)
-  }
   const handleDelete = async (productId: string) => {
     try {
-      const response = await fetch(`https://localhost:7214/api/products/delete-product?id=${productId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-  
+      const response = await fetch(
+        `https://localhost:7214/api/Admin/delete-product?id=${productId}`,
+        {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        }
+      );
+
       if (response.ok) {
         const result = await response.json();
         console.log('Product delete successful:', result);
+
+        // Refetch the updated product list after deletion
+        fetchProducts();
       } else {
         console.error('Product Delete failed:', response.statusText);
       }
     } catch (error) {
       console.error('Error during deletion:', error);
     }
-  }
+  };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);

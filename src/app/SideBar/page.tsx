@@ -1,85 +1,55 @@
-import React from 'react';
-import Head from 'next/head';
+'use client'
 
-const SideBar = () => {
-    return (
-        <>
-            <Head>
-                <link
-                    rel="stylesheet"
-                    href="https://cdn.jsdelivr.net/gh/Loopple/loopple-public-assets@main/riva-dashboard-tailwind/riva-dashboard.css"
-                />
-            </Head>
-            <div className="bg-white">
-                <div className="container flex flex-col mx-auto bg-white">
-                    <aside className="group/sidebar flex flex-col shrink-0 lg:w-[280px] w-[250px] transition-all duration-300 ease-in-out m-0 fixed z-40 inset-y-0 left-0 bg-white border-r border-r-dashed border-r-neutral-200 sidenav fixed-start loopple-fixed-start" id="sidenav-main">
-                        <div className="flex shrink-0 px-8 items-center justify-between h-[96px]">
-                            <a className="transition-colors duration-200 ease-in-out" href="https://www.loopple.com">
-                                <img alt="Logo" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/riva-dashboard-tailwind/img/logos/loopple.svg" className="inline" />
-                            </a>
-                        </div>
+import React, { useState } from 'react';
+import Image from 'next/image';
+import { ChevronLeft, ChevronRight, Home, Settings, User } from 'lucide-react';
 
-                        <div className="hidden border-b border-double lg:block dark:border-neutral-700/70 border-neutral-300"></div>
-                        {/* <div className="hidden border-b border-dashed lg:block dark:border-neutral-700/70 border-neutral-200"></div> */}
+interface NavItem {
+  name: string;
+  href: string;
+  icon: React.ReactNode;
+}
 
-                        <div className="relative pl-3 my-5 overflow-y-scroll">
-                            <div className="flex flex-col w-full font-medium">
+const navItems: NavItem[] = [
+  { name: 'Dashboard', href: '/Admin/dashboard', icon: <Home className="w-6 h-6" /> },
+  { name: 'Products', href: '/Admin/Products', icon: <User className="w-6 h-6" /> },
+  { name: 'Settings', href: '/settings', icon: <Settings className="w-6 h-6" /> },
+];
 
-                                <div>
-                                    <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                                        <a href="javascript:;" className="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Dashboard</a>
-                                    </span>
-                                </div>
+const Sidebar: React.FC = () => {
+  const [isCollapsed, setIsCollapsed] = useState(false);
 
-                                <div>
-                                    <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                                        <a href="javascript:;" className="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Products</a>
-                                    </span>
-                                </div>
+  const toggleSidebar = () => {
+    setIsCollapsed(!isCollapsed);
+  };
 
-                                <div>
-                                    <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                                        <a href="javascript:;" className="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Files</a>
-                                    </span>
-                                </div>
-
-                                <div>
-                                    <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                                        <a href="javascript:;" className="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Users</a>
-                                    </span>
-                                </div>
-
-                                <div>
-                                    <span className="select-none flex items-center px-4 py-[.775rem] cursor-pointer my-[.4rem] rounded-[.95rem]">
-                                        <a href="javascript:;" className="flex items-center flex-grow text-[1.15rem] dark:text-neutral-400/75 text-stone-500 hover:text-dark">Blogs</a>
-                                    </span>
-                                </div>
-
-                                <div className="block pt-5 pb-[.15rem]">
-                                    <div className="flex items-center w-full px-4 py-[.65rem]">
-                                        {/* <span className="font-semibold text-[0.95rem] uppercase dark:text-neutral-500/80 text-secondary-dark">Applications</span> */}
-                                        <button className='justify-center text-lg text-stone-500'
-                                            type='submit'>Sign out</button>
-                                        <svg className='ml-2 mt-0.5' width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path
-                                                fillRule="evenodd"
-                                                clipRule="evenodd"
-                                                d="M21.593 10.943c.584.585.584 1.53 0 2.116L18.71 15.95c-.39.39-1.03.39-1.42 0a.996.996 0 0 1 0-1.41 9.552 9.552 0 0 1 1.689-1.345l.387-.242-.207-.206a10 10 0 0 1-2.24.254H8.998a1 1 0 1 1 0-2h7.921a10 10 0 0 1 2.24.254l.207-.206-.386-.241a9.562 9.562 0 0 1-1.69-1.348.996.996 0 0 1 0-1.41c.39-.39 1.03-.39 1.42 0l2.883 2.893zM14 16a1 1 0 0 0-1 1v1.5a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-13a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 .5.5v1.505a1 1 0 1 0 2 0V5.5A2.5 2.5 0 0 0 12.5 3h-7A2.5 2.5 0 0 0 3 5.5v13A2.5 2.5 0 0 0 5.5 21h7a2.5 2.5 0 0 0 2.5-2.5V17a1 1 0 0 0-1-1z"
-                                                fill="#f97316"
-                                                stroke="#f97316"
-                                            />
-                                        </svg>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </aside>
-                </div>
-            </div>
-        </>
-    );
+  return (
+    <div className={`bg-white text-black h-screen ${isCollapsed ? 'w-16' : 'w-64'} transition-all duration-300 ease-in-out`}>
+      <div className="flex flex-col h-full">
+        <div className="flex items-center justify-between p-4">
+          {!isCollapsed && <Image src="/logo.png" alt="Logo" width={85} height={85}></Image>}
+          <button onClick={toggleSidebar} className="p-2 rounded-full hover:bg-orange-500">
+            {isCollapsed ? <ChevronRight className="w-6 h-6" /> : <ChevronLeft className="w-6 h-6" />}
+          </button>
+        </div>
+        <nav className="flex-1">
+          <ul>
+            {navItems.map((item) => (
+              <li key={item.name}>
+                <a
+                  href={item.href}
+                  className={`flex items-center p-4 rounded-sm mx-2 hover:bg-orange-400 ${isCollapsed ? 'justify-center' : 'space-x-4'}`}
+                >
+                  {item.icon}
+                  {!isCollapsed && <span>{item.name}</span>}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
 };
 
-export default SideBar;
+export default Sidebar;
