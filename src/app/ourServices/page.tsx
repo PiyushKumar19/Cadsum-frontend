@@ -19,7 +19,7 @@ const OurServices = () => {
 
             <div className="bg-gray-100 p-20 pr-60 pl-60">
                 <div className="flex items-center justify-center">
-                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CAD_3D_Plugin_Development_copy_tm5vqm.png" alt="Our Vision Image" className="w-1/2 md:w-1/3" />
+                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CAD_3D_Plugin_Development_copy_tm5vqm.png" alt="Our Vision Image" className="w-1/2 md:w-1/3"></img>
                     <div className="ml-40">
                         <h2 className="text-2xl font-bold text-gray-800">CAD 3D Plugin Development</h2>
                         <p className="text-gray-600 mt-4">
@@ -44,13 +44,13 @@ const OurServices = () => {
                             For more information please contact at support@cadsum.com
                         </p>
                     </div>
-                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CADSUM_CAD_Customization_yi1eod.png" alt="Our Goal Image" className="w-1/2 md:w-1/3" />
+                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CADSUM_CAD_Customization_yi1eod.png" alt="Our Goal Image" className="w-1/2 md:w-1/3"></img>
                 </div>
             </div>
 
             <div className="bg-gray-100 p-20 pr-60 pl-60">
                 <div className="flex items-center justify-center">
-                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CADSUM_SDK_qeepj9.png" alt="Our Vision Image" className="w-1/2 md:w-1/3" />
+                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663325862/Cadsum/Our%20Services/CADSUM_SDK_qeepj9.png" alt="Our Vision Image" className="w-1/2 md:w-1/3"></img>
                     <div className="ml-40">
                         <h2 className="text-2xl font-bold text-gray-800">CAD SDK Development</h2>
                         <p className="text-gray-600 mt-4">
@@ -74,7 +74,7 @@ const OurServices = () => {
                             To avail Consulting services please contact at support@cadsum.com
                         </p>
                     </div>
-                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663324552/Cadsum/About%20Us/CADSUM-GOAL_t3zinm.png" alt="Our Goal Image" className="w-1/2 md:w-1/3" />
+                    <img src="https://res.cloudinary.com/alex-tech/image/upload/v1663324552/Cadsum/About%20Us/CADSUM-GOAL_t3zinm.png" alt="Our Goal Image" className="w-1/2 md:w-1/3"></img>
                 </div>
             </div>
 

@@ -1,20 +1,36 @@
 'use client'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import ImageCarousel from '../sli/page';
-import VideoPlayer from '../Components/ProductOverview/VideoPlayer';
-import PlanCard from '../Components/ProductOverview/planCard';
-import ProductCard from '../Components/Products/productCard';
+import { useRouter } from 'next/router';
+import ImageCarousel from '../../Components/ProductOverview/ImageSlider/page';
+import VideoPlayer from '../../Components/ProductOverview/VideoPlayer';
+import PlanCard from '../../Components/ProductOverview/planCard';
+import ProductCard from '../../Components/Products/productCard';
+import withAuth from '@/app/User/HighOrderComponent/WithAuth';
+import { DownloadFileButton } from '../AllProducts/DownloadFileButton';
+import Cookies from 'js-cookie';
+import Modal from '@/app/User/Login/Modal';
+import ReactPlayer from 'react-player';
+// import CallLogin from '@/app/User/CallLogin/page';
 
 // Define the props interface
 interface ProductOverviewProps {
     productId: string;
 }
 
-const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
+const ProductOverview = ({ params } : {
+    params: {productId: string}
+}) => {
+    // const router = useRouter();
+    // const { productId } = router.query;
+  
     const [product, setProduct] = useState<Product | null>(null);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
+
+    const isAuthenticated = Cookies.get('authToken');
+
+    // const DownloadProductFileButton = withAuth(DownloadFileButton)
 
     const formatDate = (dateString: string | undefined): string => {
         if (!dateString) return 'Date not available';
@@ -26,7 +42,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=9769c38b-9626-411a-b2d0-83378a17e409`);
+                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=${params.productId}`);
                 const productData: Product = {
                     ...response.data,
                     licensingPlans: response.data.licensePlans ?? [], // Default to an empty array if undefined
@@ -65,7 +81,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                     }}
                 >
                     <div className='pl-12'>
-                        <img src={product?.productLogo} className='w-36 h-36' alt='Image'></img>
+                        <img src={product?.productLogo} className='w-36 h-36 object-contain rounded-md' alt='Image'></img>
                     </div>
                     <div className='flex flex-col w-64 p-3 justify-start'>
                         <h4 className='text-xl font-semibold'>{product?.productName}</h4>
@@ -74,15 +90,7 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                                 <span className='text-black'>{product?.version} | Last Update {formatDate(product?.releaseOn)}</span>
                             </div>
 
-                            <div className='flex w-full my-3'>
-                                <button className='justify-start bg-[#F97306] w-24 h-10 px-3 py-2 text-xs font-light text-white'>Get Quote</button>
-                                <button className='justify-start
-                                    ml-2 w-40 h-10 px-3 py-2
-                                    border-2 border-solid border-[#F97306]
-                                    text-xs font-light text-[#F97306]
-                                    hover:bg-[#F97306] hover:text-white hover:transition-all hover:duration-300'>
-                                    Download Free trial</button>
-                            </div>
+                            <DownloadFileButton filepath={product!.productFilePath} />
                             <div>
                                 <a href='https://www.google.com' target='_blank'
                                     className='text-xs font-normal text-[#F97306]'>Get trial from AutoDesk AppStore</a>
@@ -224,7 +232,17 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                             <ImageCarousel images={images} />
                         </div>
                         <div className="w-1/2 p-4">
-                            <VideoPlayer src="#" poster=''/>
+                            {product?.videoLink ? (
+                                <ReactPlayer
+                                    url={product.videoLink}
+                                    controls={true}
+                                    width="100%"
+                                    height="100%"
+                                />
+                            ) : (
+                                <p>No video available</p>
+                            )}
+
                         </div>
                     </div>
                 </div>
@@ -252,12 +270,6 @@ const ProductOverview: React.FC<ProductOverviewProps> = ({ productId }) => {
                             <label className='py-1 px-4 text-start font-semibold text-2xl text-orange-600'>Related Products</label>
                         </div>
                     </div>
-                    {/* <div className='flex flex-nowrap'>
-                        <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
-                        <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
-                        <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
-                        <ProductCard name={'Nike Air MX Super 2500 - Red'} imageSrc={'https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8c25lYWtlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60'} />
-                    </div> */}
                 </div>
             </div>
         </div>
