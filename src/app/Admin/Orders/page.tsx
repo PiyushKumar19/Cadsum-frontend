@@ -1,41 +1,37 @@
 'use client'
 
-import { Product } from "@/app/Interfaces/ProductList/ProductListDto";
+import { Order } from "@/app/Interfaces/Orders/OrderListDto";
 import Products from "@/app/Products/AllProducts/page";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import { List } from "react-feather";
 
-const ProductList = () => {
+const OrderList = () => {
   const router = useRouter();
   // const [products, setProducts] = useState(List<Product> || null)
   // useEffect(() => {
 
   // }, [products]) // this depedency array with products will make sure to re-render the page if new Data is added like new product
 
-  const [products, setProducts] = useState<Product[]>([]);
+  const [orders, setOrders] = useState<Order[]>([]);
   const [pageNumber, setPageNumber] = useState(1);
   const [pageSize, setPageSize] = useState(10);
 
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        `https://localhost:7214/api/Products/get-all-products?pageNumber=${pageNumber}&pageSize=${pageSize}`
+        `https://localhost:7214/api/Admin/get-allOrders?pageNumber=${pageNumber}&pageSize=${pageSize}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch products");
       }
 
       const data = await response.json();
-      setProducts(data.products);
+      setOrders(data.orders);
     } catch (error) {
       console.error("Error fetching products:", error);
     }
   };
-
-  function sentToCreate() {
-    router.push('./Products/Create')
-  }
   
   // Fetch products on component mount and whenever the page changes
   useEffect(() => {
@@ -77,10 +73,10 @@ const ProductList = () => {
     <div className="bg-white p-8 rounded-md w-full">
       <div className="flex items-center justify-between pb-6">
         <div>
-          <h2 className="text-gray-600 font-semibold">Products</h2>
-          <span className="text-xs">All products item</span>
+          <h2 className="text-gray-600 font-semibold">Orders</h2>
+          <span className="text-xs">All Orders</span>
         </div>
-        <div className="flex items-center">
+        {/* <div className="flex items-center">
           <div className="ml-10 space-x-4">
             <button className="flex bg-orange-500 hover:bg-orange-600 px-4 py-2 w-auto rounded-md text-white font-semibold"
             onClick={sentToCreate}>
@@ -97,14 +93,14 @@ const ProductList = () => {
               </svg>
             </button>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
         <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
           <table className="min-w-full leading-normal">
             <thead>
               <tr>
-                {["Product Name", "Category", "Released On", "Actions"].map(
+                {["Ordered Product", "Status", "Created On", "Actions"].map(
                   (header) => (
                     <th
                       key={header}
@@ -117,32 +113,32 @@ const ProductList = () => {
               </tr>
             </thead>
             <tbody>
-              {products.map((product, index) => (
+              {orders.map((order, index) => (
                 <tr key={index}>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <div className="flex items-center">
-                      <div className="flex-shrink-0 w-10 h-10">
+                      {/* <div className="flex-shrink-0 w-10 h-10">
                         <img
                           className="w-full h-full rounded-full"
-                          src={product.productLogo}
+                          src={order.}
                           alt=""
                         />
-                      </div>
+                      </div> */}
                       <div className="ml-3">
                         <p className="text-gray-900 whitespace-no-wrap">
-                          {product.productName}
+                          {order.remark}
                         </p>
                       </div>
                     </div>
                   </td>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <p className="text-gray-900 whitespace-no-wrap">
-                      {product.version}
+                      {order.status}
                     </p>
                   </td>
                   <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                     <p className="text-gray-900 whitespace-no-wrap">
-                      {formatDate(product.releasedOn)}
+                      {formatDate(order.createdOn ?? "")}
                     </p>
                   </td>
                   {/* <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -163,7 +159,7 @@ const ProductList = () => {
                             <path d="m12.5 2.5.953 1"></path> </g> </g></svg>
                         </button>
                         {/* Delete */}
-                        <button onClick={() => handleDelete(product.id)}>
+                        <button onClick={() => handleDelete(order.id)}>
                           <svg className="mx-2" width="28px" height="28px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#f61e1e"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier">
                             <path d="M10 12V17" stroke="#f61e1e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
                             <path d="M14 12V17" stroke="#f61e1e" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"></path>
@@ -202,4 +198,4 @@ const ProductList = () => {
   );
 };
 
-export default ProductList;
+export default OrderList;
