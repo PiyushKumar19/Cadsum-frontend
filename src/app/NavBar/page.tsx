@@ -3,9 +3,16 @@ import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Modal from '../User/Login/Modal'
 import Login from '../User/Login/page'
-import ContactUs from '../ContactUs/page'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import { Button } from '@/components/ui/button'
+
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,8 +22,8 @@ const NavBar = () => {
 
   const openModal = () => setShowModal(true);
   const closeModal = () => setShowModal(false);
-  const [isClient, setIsClient] = useState(false);  // New state to detect client-side rendering
-  const [token, setToken] = useState<string | null>(null);  // Token state
+  const [isClient, setIsClient] = useState(false);
+  const [token, setToken] = useState<string | null>(null);
 
 
   const router = useRouter();
@@ -29,7 +36,19 @@ const NavBar = () => {
     }
   };
 
-  
+  function handleLogout() {
+    let authToken = Cookies.get("authToken");
+    if (authToken != null || authToken == "") {
+      Cookies.remove("authToken");
+
+      router.push('/');
+    }
+  }
+
+  function handleRoutePush(path: string) {
+    router.push(`/${path}`);
+  }
+
   useEffect(() => {
     // checkAuth();
     // This runs only on the client side
@@ -118,24 +137,31 @@ const NavBar = () => {
           </ul>
         </div>
         <div className="flex items-center gap-x-1">
-        {token ? (
-            <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
-              type="button"
-              onClick={openModal}
-            >
-              <span>
-                <img src="/Images/User/user.png" alt="User" />
-              </span>
-            </button>
+          {token ? (
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" className="p-0 h-auto">
+                  <img src="/Images/User/user.png" alt="User" />
+
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                <DropdownMenuItem onSelect={() => handleRoutePush('User/Profile')}>
+                  Profile
+                </DropdownMenuItem>
+                <DropdownMenuItem className="text-red-500" onSelect={() => handleLogout()}>
+                  Logout
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           ) : (
             <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
               type="button"
               onClick={openModal}
             >
               <span>
-                <svg width="24px" height="24px" fill="#000000" viewBox="0 0 24 24" id="user" data-name="Flat Color" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier">
-                  <path id="primary" d="M21,20a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2,6,6,0,0,1,6-6h6A6,6,0,0,1,21,20Zm-9-8A5,5,0,1,0,7,7,5,5,0,0,0,12,12Z"></path></g>
-                </svg>
+                <img src="/Images/User/user.png" alt="User" />
               </span>
             </button>
           )}
