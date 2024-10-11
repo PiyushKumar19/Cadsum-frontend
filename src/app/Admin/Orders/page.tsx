@@ -154,7 +154,7 @@ const OrderList = () => {
                           </DropdownMenuTrigger>
                           <DropdownMenuContent>
                             <DropdownMenuItem className="text-green-500" onSelect={() => handleUpdateStatus(order.id, "Approved")}>
-                              Approved
+                              Approve
                             </DropdownMenuItem>
                             <DropdownMenuItem className="text-green-700" onSelect={() => handleUpdateStatus(order.id, "Completed")}>
                               Complete

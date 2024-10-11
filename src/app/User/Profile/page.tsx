@@ -150,22 +150,6 @@ export default function UserProfile() {
                   <Mail className="h-4 w-4" />
                   <span className="text-black">{profile!.email}</span>
                 </div>
-                {/* <div className="flex items-center space-x-2 text-muted-foreground">
-                  <Phone className="h-4 w-4" />
-                  <span>+1 (555) 123-4567</span>
-                </div>
-                <div className="flex items-center space-x-2 text-muted-foreground">
-                  <CalendarDays className="h-4 w-4" />
-                  <span>Joined January 2020</span>
-                </div> */}
-                <div className="mt-6">
-                  <h3 className="text-lg font-semibold mb-2">Bio</h3>
-                  <p className="text-muted-foreground">
-                    Passionate software developer with 5+ years of experience in building web applications.
-                    Specializing in React, Node.js, and cloud technologies. Always eager to learn and tackle
-                    new challenges in the ever-evolving world of tech.
-                  </p>
-                </div>
               </div>
             </TabsContent>
             <TabsContent value="orders">
