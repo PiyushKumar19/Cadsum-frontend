@@ -1,15 +1,10 @@
 'use client'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router';
-import ImageCarousel from '../../Components/ProductOverview/ImageSlider/page';
-import VideoPlayer from '../../Components/ProductOverview/VideoPlayer';
+import ImageCarousel from '../../Components/ProductOverview/ImageSlider/ImageSlider';
 import PlanCard from '../../Components/ProductOverview/planCard';
-import ProductCard from '../../Components/Products/productCard';
-import withAuth from '@/app/User/HighOrderComponent/WithAuth';
 import { DownloadFileButton } from '../AllProducts/DownloadFileButton';
 import Cookies from 'js-cookie';
-import Modal from '@/app/User/Login/Modal';
 import ReactPlayer from 'react-player';
 // import CallLogin from '@/app/User/CallLogin/page';
 
@@ -42,7 +37,7 @@ const ProductOverview = ({ params } : {
     useEffect(() => {
         const fetchProduct = async () => {
             try {
-                const response = await axios.get(`https://localhost:7214/api/Products/get-product?Id=${params.productId}`);
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/Products/get-product?Id=${params.productId}`);
                 const productData: Product = {
                     ...response.data,
                     licensingPlans: response.data.licensePlans ?? [], // Default to an empty array if undefined

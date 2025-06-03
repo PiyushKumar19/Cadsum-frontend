@@ -95,7 +95,7 @@ export default function UserProfile() {
     setIsLoading(true)
     try {
       // Replace this with your actual API call
-      const response = await fetch(`https://localhost:7214/api/Admin/get-order-byId?OrderId=${orderId}`)
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Admin/get-order-byId?OrderId=${orderId}`)
       const data: OrderResponse = await response.json()
       setSelectedOrder(data.order)
     } catch (error) {

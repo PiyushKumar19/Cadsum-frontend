@@ -30,7 +30,7 @@ function activationGuide() {
         <div className='font-lato text-gray-800 text-base'>
         <p className="mt-4"><b>Step 1: </b> After purchasing the product you will get a license key by email.</p>
         <p className="mt-1"><b>Step 2: </b> Go to the Help menu of plugin in the ribbon of the software.</p>
-        <p className="mt-1"><b>Step 3: </b> Paste the license key into the provided field and click the "Activate" button. Refer to the image below for guidance.</p>
+        <p className="mt-1"><b>Step 3: </b> {"Paste the license key into the provided field and click the 'Activate' button. Refer to the image below for guidance."}</p>
         <p className="mt-1"><b>Step 4: </b> You will see a popup confirming the successful activation of your product.</p>
         </div>
 

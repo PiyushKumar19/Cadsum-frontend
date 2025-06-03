@@ -1,6 +1,7 @@
 import React from 'react'
+import Image from 'next/image'
 
-const Home = () => {
+const HomePage = () => {
     return (
         <div className='bg-white'>
             <div className="flex items-center justify-end text-white pt-32 pb-32 bg-cover bg-center bg-no-repeat bg-[url('https://res.cloudinary.com/alex-tech/image/upload/v1723965495/Cadsum/Banner%20and%20logos/sl_063022_51250_12_gkxp9t.jpg')]">
@@ -415,7 +416,7 @@ const Home = () => {
                 </div>
                 <div className="flex">
                     <p className="text-xl text-gray-900 font-bold mr-2 font-lato">
-                        What's Our Clients Say About
+                        {"What's Our Clients Say About"}
                     </p>
                     <p className="text-xl text-orange-600 font-bold font-lato">Cadsum</p>
                 </div>
@@ -437,9 +438,7 @@ const Home = () => {
                         </svg>
                         <blockquote>
                             <p className="text-lg font-medium text-gray-800 md:text-lg font-lato">
-                                "Landwind is just awesome. It contains tons of predesigned
-                                components and pages starting from login screen to complex
-                                dashboard. Perfect choice for your next SaaS application."
+                                {"Landwind is just awesome. It contains tons of predesigned components and pages starting from login screen to complex dashboard. Perfect choice for your next SaaS application."}
                             </p>
                         </blockquote>
                         <figcaption className="flex items-center justify-center mt-6 space-x-3">
@@ -464,16 +463,33 @@ const Home = () => {
     </p>
   </div>
 
-  <div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
-      <img className="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" alt="Transistor" width="158" height="48"/>
-      <img className="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" alt="Reform" width="158" height="48"/>
-      <img className="col-span-2 max-h-12 w-full object-contain lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" alt="Tuple" width="158" height="48"/>
-      <img className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" alt="SavvyCal" width="158" height="48"/>
-      <img className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" alt="Statamic" width="158" height="48"/>
-    </div>
+<div className="mx-auto mt-10 grid max-w-lg grid-cols-4 items-center gap-x-8 gap-y-10 sm:max-w-xl sm:grid-cols-6 sm:gap-x-10 lg:mx-0 lg:max-w-none lg:grid-cols-5">
+    <Image className="col-span-2 max-h-12 w-full object-contain lg:col-span-1" 
+        src="https://tailwindui.com/img/logos/158x48/transistor-logo-gray-900.svg" 
+        alt="Transistor" 
+        width={158} height={48} />
+    <Image className="col-span-2 max-h-12 w-full object-contain lg:col-span-1" 
+        src="https://tailwindui.com/img/logos/158x48/reform-logo-gray-900.svg" 
+        alt="Reform" 
+        width={158} height={48} />
+    <Image className="col-span-2 max-h-12 w-full object-contain lg:col-span-1" 
+        src="https://tailwindui.com/img/logos/158x48/tuple-logo-gray-900.svg" 
+        alt="Tuple" 
+        width={158} height={48} />
+    <Image className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1" 
+        src="https://tailwindui.com/img/logos/158x48/savvycal-logo-gray-900.svg" 
+        alt="SavvyCal" 
+        width={158} 
+        height={48} />
+    <Image className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1" 
+        src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg" 
+        alt="Statamic" 
+        width={158} 
+        height={48} />
+</div>
     </section>
 </div>
     )
 }
 
-export default Home
+export default HomePage

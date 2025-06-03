@@ -11,7 +11,7 @@ export const getUserProfile = async () => {
     headers['Authorization'] = authToken;
   }
 
-  const response = await fetch('https://localhost:7214/api/Users/get-user-profile', {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Users/get-user-profile`, {
     method: 'GET',
     headers: headers,
   });

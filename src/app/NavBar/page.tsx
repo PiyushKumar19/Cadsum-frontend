@@ -1,8 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import Modal from '../User/Login/Modal'
-import Login from '../User/Login/page'
+import Modal from '../Components/Login/Modal'
+import Login from '../Components/Login/Login'
 import Cookies from 'js-cookie'
 import { useRouter } from 'next/navigation'
 import {

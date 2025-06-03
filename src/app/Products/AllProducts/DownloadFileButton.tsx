@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
-import Modal from '@/app/User/Login/Modal';
-import Login from '@/app/User/Login/page';
+import Modal from '@/app/Components/Login/Modal';
+import Login from '@/app/Components/Login/Login';
 
 interface DownloadFileButtonProps {
   filepath: string;

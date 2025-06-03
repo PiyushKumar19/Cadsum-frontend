@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from '../Components/Products/productCard';
 import { Product } from '../Interfaces/ProductList/ProductListDto';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Products = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -23,7 +24,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://localhost:7214/api/Products/get-all-products');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Products/get-all-products`);
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
@@ -79,15 +80,18 @@ const Products = () => {
 
         <div className="flex justify-center">
           {filteredProducts.map((product) => (
-            <div className="max-w-xs hover:transform hover:scale-110 hover:duration-100 rounded overflow-hidden shadow-lg m-10">
+            <div key={product.id} className="max-w-xs hover:transform hover:scale-110 hover:duration-100 rounded overflow-hidden shadow-lg m-10">
               <Link href={`/Products/${product.id}`}>
                 <div className="cursor-pointer h-full flex flex-col justify-between">
                   <div className="flex justify-center flex-grow h-4/5">
-                    <img
+                    <Image
                       className="w-2/4 h-auto object-contain mx-auto"
                       src={product.productLogo}
                       alt="Product Logo"
-                    ></img>
+                      width={200}
+                      height={200}
+                      unoptimized
+                    />
                   </div>
                   <div className="bg-gray-200 px-2 py-2 mt-auto h-1/5">
                     <div className="font-bold text-base font-lato text-center">

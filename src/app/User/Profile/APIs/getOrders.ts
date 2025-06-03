@@ -12,7 +12,7 @@ export const getOrders = async () => {
   }
 
   try {
-    const response = await fetch('https://localhost:7214/api/Users/get-order-by-user', {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Users/get-order-by-user`, {
       method: 'GET',
       headers: headers,
     });

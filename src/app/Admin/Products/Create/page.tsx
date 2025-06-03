@@ -128,40 +128,6 @@ const ProductCreate = () => {
         setIsOpen(false); // Close the dropdown after selection
     };
 
-    // const handleSubmit = async () => {
-    //     const getFileUploadRequest = (file: File) => {
-    //         return {
-    //             FileName: file.name,
-    //             Extension: file.name.split('.').pop()!,
-    //             Data: '',
-    //         };
-    //     };
-
-    //     const productLogoRequest = productLogo ? getFileUploadRequest(productLogo) : null;
-    //     const productGalleryImagesRequests = productGalleryImages.map((file) => getFileUploadRequest(file));
-
-    //     const requestBody = {
-    //         ProductName: productName,
-    //         Description: description,
-    //         Price: price,
-    //         Version: version,
-    //         SupportedOS: supportedOS,
-    //         SupportedLanguages: supportedLanguages,
-    //         ProductLogo: productLogoRequest,
-    //         ProductGalleryImages: productGalleryImagesRequests,
-    //         LicensingPlans: licensingPlans,
-    //     };
-
-    //     try {
-    //         const response = await axios.post('/api/product/create', requestBody, {
-    //             headers: { 'Content-Type': 'application/json' }
-    //         });
-    //         console.log('Product created successfully:', response.data);
-    //     } catch (error) {
-    //         console.error('Error creating product:', error);
-    //     }
-    // };
-
     const handleSubmit = async () => {
         // Function to convert a file to base64
         const toBase64 = (file: File) => {
@@ -195,9 +161,11 @@ const ProductCreate = () => {
         };
     
         try {
-            const response = await axios.post('https://localhost:7214/api/products/create-product/', requestBody, {
-                headers: { 'Content-Type': 'application/json' }
-            });
+            const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/Admin/create-product/`,
+                requestBody, 
+                {
+                    headers: { 'Content-Type': 'application/json' }
+                });
             console.log('Product created successfully:', response.data);
             checkAndSendToProductList();
         } catch (error) {

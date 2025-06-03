@@ -20,7 +20,7 @@ const ProductList = () => {
   const fetchProducts = async () => {
     try {
       const response = await fetch(
-        `https://localhost:7214/api/Products/get-all-products?pageNumber=${pageNumber}&pageSize=${pageSize}`
+        `${process.env.NEXT_PUBLIC_API_URL}/Products/get-all-products?pageNumber=${pageNumber}&pageSize=${pageSize}`
       );
       if (!response.ok) {
         throw new Error("Failed to fetch products");

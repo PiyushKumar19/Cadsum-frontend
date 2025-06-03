@@ -11,7 +11,7 @@ const Products = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://localhost:7214/api/Products/get-all-products');
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Products/get-all-products`);
         if (!response.ok) {
           throw new Error("Failed to fetch products");
         }
@@ -92,7 +92,7 @@ const Products = () => {
 
         <div className="flex justify-center">
           {products.map((product) => (
-            <div className="max-w-xs rounded overflow-hidden shadow-lg m-10">
+            <div key={product.id} className="max-w-xs rounded overflow-hidden shadow-lg m-10">
               <Link href={`/Products/${product.id}`}>
                 <div className="block cursor-pointer">
                   <div className="flex justify-center">

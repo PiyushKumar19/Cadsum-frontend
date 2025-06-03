@@ -1,6 +1,8 @@
+"use client"
+
 import React, { useState, useEffect } from 'react'
-import Modal from '../Login/Modal'
-import Login from '../Login/page'
+import Modal from '../../Components/Login/Modal'
+import Login from '../../Components/Login/Login'
 import Cookies from 'js-cookie'
 
 const CallLogin = () => {
@@ -25,7 +27,7 @@ const CallLogin = () => {
 
   useEffect(() => {
     // Call checkAuth to validate auth token on component mount
-    checkAuth();
+    // checkAuth();
   }, []);
   return (
     <div>

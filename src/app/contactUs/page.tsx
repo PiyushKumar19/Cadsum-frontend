@@ -18,8 +18,8 @@ const ContactUs = () => {
         <div className="my-6">
             <div className="grid sm:grid-cols-2 items-center gap-16 p-8 mx-auto max-w-4xl bg-white shadow-[0_2px_10px_-3px_rgba(6,81,237,0.3)] rounded-md text-[#333] font-[sans-serif]">
                 <div>
-                    <h1 className="text-3xl font-bold font-poppins">Let's Talk</h1>
-                    <p className="text-base text-gray-800 mt-3 font-lato ">Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project and provide help.</p>
+                    <h1 className="text-3xl font-bold font-poppins">{"Let's Talk"}</h1>
+                    <p className="text-base text-gray-800 mt-3 font-lato ">{"Have some big idea or brand to develop and need help? Then reach out we'd love to hear about your project and provide help."}</p>
                     <div className="mt-12">
                         <h2 className="text-lg font-bold font-poppins">Email</h2>
                         <ul className="mt-3">

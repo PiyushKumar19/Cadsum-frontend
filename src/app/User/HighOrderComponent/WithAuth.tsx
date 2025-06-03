@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
-import Modal from '@/app/User/Login/Modal'; // Adjust the import path as needed
-import Login from '@/app/User/Login/page'; // Adjust the import path as needed
+import Modal from '@/app/Components/Login/Modal'; 
+import Login from '@/app/Components/Login/Login'; 
 
 const withAuth = (Component: React.ComponentType<any>) => {
   const AuthWrapper: React.FC<any> = (props) => {
