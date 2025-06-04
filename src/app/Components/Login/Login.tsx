@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import Cookies from 'js-cookie';
+import { useRouter } from 'next/navigation';
+// import Register from '@/app/User/Register/page';
 
 interface LoginProps {
   onSuccess: () => void;  // Accept a callback for closing the modal or handling success
@@ -9,6 +11,8 @@ interface LoginProps {
 
 const Login: React.FC<LoginProps> = ({ onSuccess }) => {
   const base_url = process.env.NEXT_PUBLIC_API_URL;
+
+  const router = useRouter();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -118,7 +122,11 @@ const Login: React.FC<LoginProps> = ({ onSuccess }) => {
         </button>
         <div className="text-sm font-medium text-gray-500 text-center">
           {"Don't have an account?"}
-          <a href="#" className="text-orange-500 hover:text-orange-600 ml-1">
+          <a
+            href="#"
+            className="text-orange-500 hover:text-orange-600 ml-1"
+            onClick={() => router.push(`../${'User/Register'}`)}
+          >
             Create account
           </a>
         </div>

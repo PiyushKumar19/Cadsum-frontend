@@ -12,10 +12,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Button } from '@/components/ui/button'
+import { AuthDialog } from '../Components/AuthDialog'
 
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [toggleAuthDialog, setToggleAuthDialog] = useState(false);
   const toggleDropdown = () => setIsOpen(!isOpen);
 
   const [showModal, setShowModal] = useState(false);
@@ -28,6 +30,19 @@ const NavBar = () => {
 
   const router = useRouter();
 
+  const handleToggleAuthDialog = () => {
+    setToggleAuthDialog(!toggleAuthDialog);
+  };
+
+  const handleAuthDialogClose = (open: boolean) => {
+    setToggleAuthDialog(open);
+    if (!open) {
+      // Refresh token state when dialog closes
+      const authToken = Cookies.get('authToken');
+      setToken(authToken || null);
+    }
+  };
+
   // Check if the user is authenticated
   const checkAuth = () => {
     const authToken = Cookies.get('authToken');
@@ -37,10 +52,14 @@ const NavBar = () => {
   };
 
   function handleLogout() {
-    let authToken = Cookies.get("authToken");
-    if (authToken != null || authToken == "") {
-      Cookies.remove("authToken");
-
+    const authToken = Cookies.get("authToken");
+    if (authToken) {
+      Cookies.remove("authToken", {
+        path: '/',
+        secure: true,
+        sameSite: 'Lax',
+      });
+      setToken(null); // Update state immediately
       router.push('/');
     }
   }
@@ -112,7 +131,7 @@ const NavBar = () => {
                 {isOpen && (
                   <div className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
                     <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                      {['License Policy', 'Activation Guide', 'Contact Us', 'FAQ', 'EULA'].map((page) => (
+                      {['License Policy', 'Activation Guide', 'ContactUs', 'FAQ', 'EULA'].map((page) => (
                         <a
                           className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                           role="menuitem"
@@ -120,6 +139,18 @@ const NavBar = () => {
                           onClick={() => {
                             if (page === 'Activation Guide') {
                               router.push(`../activation-guide`)
+                            }
+                            else if (page === 'ContactUs') {
+                              router.push(`../contactUs`)
+                            }
+                            else if (page === 'License Policy') {
+                              router.push(`../LicensePolicy`)
+                            }
+                            else if (page === 'EULA') {
+                              router.push(`../eula`)
+                            }
+                            else if (page === 'FAQ') {
+                              router.push(`../faq`)
                             }
                             else {
                               router.push(`../${page.replace(' ', '')}`)
@@ -158,13 +189,14 @@ const NavBar = () => {
           ) : (
             <button className="hidden mr-4 text-center align-middle transition-all  select-none disabled:pointer-events-none disabled:opacity-50 shadow-gray-900/10 hover:shadow-gray-900/20  lg:inline-block"
               type="button"
-              onClick={openModal}
+              onClick={handleToggleAuthDialog}
             >
               <span>
                 <img src="/Images/User/user.png" alt="User" />
               </span>
             </button>
           )}
+          {toggleAuthDialog ? <AuthDialog open={toggleAuthDialog} onOpenChange={setToggleAuthDialog} /> : null}
 
           <button className="hidden select-none rounded-lg bg-gradient-to-tr from-orange-500 to-orange-400 py-2 px-4 text-center align-middle font-poppins text-xs font-bold uppercase text-white shadow-md shadow-gray-900/10 transition-all hover:shadow-lg hover:shadow-gray-900/20 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none lg:inline-block"
             type="button">
@@ -180,9 +212,6 @@ const NavBar = () => {
         </button>
       </nav>
 
-      <Modal show={showModal} onClose={closeModal}>
-        <Login onSuccess={closeModal} />  {/* Pass closeModal to Login */}
-      </Modal>
 
     </div>
   )

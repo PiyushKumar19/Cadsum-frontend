@@ -26,8 +26,8 @@ const ConditionalNavigation = ({ setIsAdmin }: { setIsAdmin: (value: boolean) =>
           const decodedToken = jwtDecode<CustomJwtPayload>(authToken);
           // const role = decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
           const role = decodedToken["http://schemas.microsoft.com/ws/2008/06/identity/claims/role"];
-          console.log("Decoded Token:", decodedToken);
-          console.log("Extracted Role:", role);
+          // console.log("Decoded Token:", decodedToken);
+          // console.log("Extracted Role:", role);
           setIsAdmin(role === "Admin");
         } catch (error) {
           console.error("Error decoding token:", error);
